@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>SunSip - Carte des Délices</title>
+    <title>SunSip - Notre Carte</title>
     <link rel="stylesheet" href="UwU.css">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
@@ -11,7 +11,7 @@
 <header class="header-sun">
     <div class="titre-group">
         <h1 class="titre-rose">SunSip</h1>
-        <p class="slogan">"Frais et délicieux : Le smoothie qui défie le soleil de Bangkok !"</p>
+        <p class="slogan">"Des fruits au frais, rien que pour vos palais !"</p>
     </div>
     <img src="logo.jpeg" alt="Logo SunSip" class="remove-bg">
 </header>
@@ -25,16 +25,17 @@
     <a href="livraison.html" class="pro">Livreur</a>
 </nav>
 
-<section class="recherche-section">
+<section class="recherche-container">
     <div class="clair">
-        <h2>Recherche de desserts</h2>
+        <h2>Recherche de douceurs</h2>
         <input type="text" placeholder="Un smoothie, une crêpe...">
         <button>Rechercher</button>
     </div>
 </section>
 
 <div class="main-container">
-    <nav class="claire">
+    
+    <aside class="claire">
         <p class="menu">Catégories</p>
         <ul>
             <li><a href="#smoothies">Smoothies</a></li>
@@ -43,44 +44,59 @@
             <li><a href="#gaufres">Gaufres</a></li>
             <li><a href="#salades">Salades de fruits</a></li>
         </ul>
-    </nav>
+    </aside>
 
-    <section class="products-grid">
-        <h2 id="smoothies" class="section-title">Nos Smoothies</h2>
-        <div class="product">
-            <img src="s2.jpg" alt="Smoothie">
-            <p>Smoothie citron</p>
-            <span class="price">5.50€</span>
+    <main class="products-grid">
+        
+        <div class="categorie-header">
+            <img src="image2.jpg" alt="Smoothies" class="img-categorie">
+            <h2 id="smoothies" class="section-title">Nos Smoothies</h2>
         </div>
-        <div class="product">
-            <img src="s1.jpg" alt="Smoothie">
-            <p>Smoothie fruits rouges</p>
-            <span class="price">6.00€</span>
-        </div>
-
-        <h2 id="crepes" class="section-title">Nos Crêpes</h2>
-        <div class="product">
-            <img src="crepe2.jpg" alt="crepe">
-            <p>Crêpe chocolat</p>
-            <span class="price">4.50€</span>
-        </div>
-        <div class="product">
-            <img src="crepe1.jpg" alt="crepe">
-            <p>Crêpe fraise</p>
-            <span class="price">4.50€</span>
+        <div class="product-list">
+            <div class="product">
+                <img src="s2.jpg" alt="Smoothie citron">
+                <p>Smoothie citron</p>
+                <span class="price">5.50€</span>
+            </div>
+            <div class="product">
+                <img src="s1.jpg" alt="Smoothie rouge">
+                <p>Smoothie fruits rouges</p>
+                <span class="price">6.00€</span>
+            </div>
         </div>
 
-        <h2 id="gaufres" class="section-title">Nos Gaufres</h2>
+        <div class="categorie-header">
+            <img src="crepe1.jpg" alt="Crêpes" class="img-categorie">
+            <h2 id="crepes" class="section-title">Nos Crêpes</h2>
+        </div>
+        <div class="product-list">
+            <div class="product">
+                <img src="crepe2.jpg" alt="Crêpe chocolat">
+                <p>Crêpe chocolat</p>
+                <span class="price">4.50€</span>
+            </div>
+            <div class="product">
+                <img src="crepe1.jpg" alt="Crêpe fraise">
+                <p>Crêpe fraise</p>
+                <span class="price">4.50€</span>
+            </div>
+        </div>
+
+        <div class="categorie-header">
+            <img src="gaufrechocolat.jpg" alt="Gaufres" class="img-categorie">
+            <h2 id="gaufres" class="section-title">Nos Gaufres</h2>
+        </div>
         <div class="product">
             <img src="gaufrechocolat.jpg" alt="Gaufre">
             <p>Gaufre chocolat</p>
             <span class="price">5.00€</span>
         </div>
-    </section>
+
+    </main>
 </div>
 
 <footer>
-    <p>&copy; 2026 SunSip - Fraîcheur & Gourmandise</p>
+    <p>SunSip - Fraîcheur & Gourmandise &copy; 2026</p>
 </footer>
 
 </body>
