@@ -1,0 +1,16 @@
+<header class="header-sun">
+    <div class="titre-group">
+        <h1 class="titre-rose">SunSip</h1>
+        <p class="slogan">"Frais et délicieux : Le smoothie qui défie le soleil de Bangkok !"</p>
+    </div>
+    <img src="logo.jpeg" alt="Logo SunSip" class="remove-bg">
+</header>
+
+<nav class="nav-simple">
+    <a href="page_dacceuil.html">Accueil</a>
+    <a href="produits.html">Carte</a>
+    <a href="inscription.html">S'inscrire</a>
+    <a href="connexion.html">Connexion</a>
+    <a href="profil.html">Mon Profil</a>
+    <a href="livraison.html" class="pro">Livreur</a>
+</nav>
