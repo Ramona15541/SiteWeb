@@ -1,10 +1,18 @@
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-<header class="header-sun">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>SunSip - Accueil</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<<header class="header-sun">
     <div class="titre-group">
         <h1 class="titre-rose">SunSip</h1>
-        <p class="slogan">"Frais et délicieux : Le smoothie qui défie le soleil de Bangkok !"</p>
+        <p class="slogan">"Frais et délicieux : Le smoothie qui défie le soleil !"</p>
     </div>
-    <img src="logo.jpeg" alt="Logo SunSip" class="remove-bg">
+    <img src="logo.jpeg" alt="Logo" class="remove-bg">
 </header>
 
 <nav class="nav-simple">
@@ -15,3 +23,7 @@
     <a href="profil.html">Mon Profil</a>
     <a href="livraison.html" class="pro">Livreur</a>
 </nav>
+<img src="image2.jpg" alt="image2" class="image2">
+<p class="slogan">Des fruits au frais rien que pour vous palais !</p>
+</body>
+</html>
