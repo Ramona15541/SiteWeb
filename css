@@ -26,13 +26,13 @@ a:hover {
 }
 
 header {
-    background-color: var(--jaune);
+    background-color: var(--bg-color);
     padding: 20px;
     text-align: center;
     
     font-weight: bold;
     
-  font-family: 'Pacifico', cursive; 
+  font-family: 'Aril', cursive; 
   
   
   font-size: 40px; 
@@ -40,7 +40,61 @@ header {
  
   letter-spacing: 2px;
 }
+.header-sun {
+    display: flex;
+    justify-content: space-between; /* Titre à gauche, logo à droite */
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--bg-color);
+    position: relative;
+}
 
+.nav-simple {
+    background-color: var(--rose); /* On utilise le rose de ta pote */
+    display: flex;
+    justify-content: center; /* Centre les liens au milieu de la page */
+    flex-wrap: wrap;        /* Si l'écran est petit, les liens passent à la ligne */
+    padding: 10px;
+}
+
+.nav-simple a {
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;     /* Gros boutons pour les doigts du livreur */
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.nav-simple a:hover {
+    background-color: var(--bleu); /* Change de couleur au survol */
+    border-radius: 5px;
+}
+
+/* Un style un peu différent pour l'espace pro */
+.nav-simple a.pro {
+    color: var(--jaune);
+    border-left: 1px solid white;
+}
+.titre-group {
+    flex-grow: 1;
+    text-align: center; /* Aligne bien le texte à gauche */
+}
+
+.titre-rose {
+    color: var(--rose); 
+    font-family: 'Pacifico', cursive;
+    font-size: 50px; 
+    margin: 0;
+}
+
+.slogan {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px; 
+    color: var(--rose);
+    margin-top: 5px;
+    font-style: italic;
+    font-weight: normal; /* Pour que ça ne soit pas en gras comme le titre */
+}
 header+nav {
     background-color: var(--rose);
     display: flex;
@@ -72,7 +126,7 @@ section {
 }
 
 .product img {
-    width: 100%;
+    width: 200%;
     border-radius: 10px;
 }
 
@@ -86,10 +140,10 @@ form {
 }
 
 input, select, textarea {
-    width: 100%;
-    padding: 10px;
+    width: 300%;
+    padding: 30px;
     margin: 10px 0;
-    border-radius: 5px;
+    border-radius: 15px;
     border: none;
 }
 
@@ -134,11 +188,25 @@ nav a:hover {
   
  
   filter: contrast(1.2); 
-  height : 75px;
-  width:75px;
+  height : 150px;
+  width:150;
   vertical-align: middle;
   padding: 7px;
 }
+.image2{
+  background-color: #f0f0f0; 
+    
+  mix-blend-mode: multiply;
+  
+ 
+  filter: contrast(1.2); 
+  height : 300px;
+  width:300px;
+  vertical-align: middle;
+  padding: 7px;
+}
+
+
 .profile-box, .order-box {
     background-color: var(--jaune);
     padding: 15px;
@@ -158,11 +226,11 @@ nav a:hover {
 }
 .claire {
     background-color: #FFE66D;
-    padding: 4px;
+    padding: 20px;
      margin: 5px;
     font-weight: bold;
     color: #f97bba;
-    width: 100px;
+    width: 200x;
     border-radius: 10px;
 }
 .claire {
@@ -201,3 +269,30 @@ nav a:hover {
   color: #FE48A5;
   transform: scale(1.05);
 }
+.claire-menu {
+    position: relative;
+    position: relative;
+    display: inline-block;
+    /* On ajoute un petit padding en bas pour faire le pont avec le menu */
+    padding-bottom: 10px; 
+}
+
+.btn-menu {
+    background-color: var(--rose);
+    color: white;
+    padding: 5px 12px; /* On réduit encore un peu la taille du bouton */
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.liste-liens {
+    position: absolute;
+    top: 35px; /* On le colle plus près du bouton */
+    left: 0;
+    background-color: white;
+    border: 2px solid var(--rose);
+    border-radius: 10px;
+    list-style: none;
