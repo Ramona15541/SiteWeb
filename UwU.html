@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>SunSip - Accueil</title>
+    <title>SunSip - Carte des Délices</title>
     <link rel="stylesheet" href="UwU.css">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
@@ -24,75 +24,64 @@
     <a href="profil.html">Mon Profil</a>
     <a href="livraison.html" class="pro">Livreur</a>
 </nav>
-<section class="clair">
-    <h2>Recherche de desserts</h2>
-    <input type="text" placeholder="Rechercher...">
-    <button>Rechercher</button>
-</section>
-<nav class="claire">
-  <p class="menu">Menu</p>
-  <ul>
-    <li><a href="#smoothies">Smoothies</a></li>
-    <li><a href="#milkshakes">Milkshakes</a></li>
-    <li><a href="#crepes">Crêpes</a></li>
-    <li><a href="#gaufres">Gaufres</a></li>
-    <li><a href="#salades">Salades de fruits</a></li>
-  </ul>
-</nav>
-<br/>
-<br/>
-<br/>
 
-</nav>
-
-    <div id="gaufres" class="product">
-        <img src="gaufrechocolat.jpg" alt="Gaufre">
-        <p>Gaufre chocolat</p>
-    </div>
-    <br/>
-    <br/>
-    <br/>
-    <div id="crepes" class="product">
-        <img src="crepe2.jpg" alt="crepe">
-        <p>Crêpe chocolat</p></div>
-    <div class="product">
-        <img src="crepe1.jpg" alt="crepe">
-        <p>Crêpe fraise</p>
-    </div>
-    <br/>
-    <br/>
-    <br/>
-    <div id="salades" class="product">
-        <img src="saladedefruits.jpg" alt="Salade de fruits">
-        <p>Salade de fruits fraîche</p>
-    </div>
-    <br/>
-    <br/>
-    <br/>
-    <div id="milkshakes" class="product">
-        <img src="milk2.jpg" alt="milkshake">
-        <p>Milkshake vanille</p>
-    </div>
-    <div class="product">
-        <img src="milk1.jpg" alt="milkshake">
-        <p>Milkshake fraise</p>
-    </div>
-    <br/>
-    <br/>
-    <br/>
-    <div id="smoothies" class="product">
-        <img src="s2.jpg" alt="Smoothie">
-        <p>Smoothie citron</p>
-    </div>
-    <div class="product">
-        <img src="s1.jpg" alt="Smoothie">
-        <p>Smoothie fruits rouge</p>
+<section class="recherche-section">
+    <div class="clair">
+        <h2>Recherche de desserts</h2>
+        <input type="text" placeholder="Un smoothie, une crêpe...">
+        <button>Rechercher</button>
     </div>
 </section>
 
-<footer>SunSip</footer>
+<div class="main-container">
+    <nav class="claire">
+        <p class="menu">Catégories</p>
+        <ul>
+            <li><a href="#smoothies">Smoothies</a></li>
+            <li><a href="#milkshakes">Milkshakes</a></li>
+            <li><a href="#crepes">Crêpes</a></li>
+            <li><a href="#gaufres">Gaufres</a></li>
+            <li><a href="#salades">Salades de fruits</a></li>
+        </ul>
+    </nav>
 
+    <section class="products-grid">
+        <h2 id="smoothies" class="section-title">Nos Smoothies</h2>
+        <div class="product">
+            <img src="s2.jpg" alt="Smoothie">
+            <p>Smoothie citron</p>
+            <span class="price">5.50€</span>
+        </div>
+        <div class="product">
+            <img src="s1.jpg" alt="Smoothie">
+            <p>Smoothie fruits rouges</p>
+            <span class="price">6.00€</span>
+        </div>
 
+        <h2 id="crepes" class="section-title">Nos Crêpes</h2>
+        <div class="product">
+            <img src="crepe2.jpg" alt="crepe">
+            <p>Crêpe chocolat</p>
+            <span class="price">4.50€</span>
+        </div>
+        <div class="product">
+            <img src="crepe1.jpg" alt="crepe">
+            <p>Crêpe fraise</p>
+            <span class="price">4.50€</span>
+        </div>
+
+        <h2 id="gaufres" class="section-title">Nos Gaufres</h2>
+        <div class="product">
+            <img src="gaufrechocolat.jpg" alt="Gaufre">
+            <p>Gaufre chocolat</p>
+            <span class="price">5.00€</span>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2026 SunSip - Fraîcheur & Gourmandise</p>
+</footer>
 
 </body>
 </html>
