@@ -1,3 +1,58 @@
+<div class="zone-recherche-discrete">
+    <input type="text" placeholder="Trouver un smoothie...">
+    <button>🔍</button>
+</div>
+
+css : 
+.zone-recherche-discrete {
+    
+    text-align: center;
+    
+    padding: 15px 0;
+    
+   
+    
+    }
+    
+    
+    .zone-recherche-discrete input {
+    
+    width: 250px;
+    
+    padding: 8px 15px;
+    
+    border: 2px solid var(--rose); 
+    
+    border-radius: 20px;
+    
+    outline: none;
+    
+    font-size: 14px;
+    
+    }
+    
+    
+    .zone-recherche-discrete button {
+    
+    background-color: var(--rose);
+    
+    color: white;
+    
+    border: none;
+    
+    padding: 8px 12px;
+    
+    border-radius: 20px;
+    
+    cursor: pointer;
+    
+    margin-left: -40px;
+    }
+
+
+
+
+
 :root {
     --jaune: #FFE66D; 
     --rose: #FF9ECF;  
