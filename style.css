@@ -1,0 +1,401 @@
+
+:root {
+
+    --jaune: #FFE66D;
+    
+    --rose: #FF9ECF;
+    
+    --bleu: #A7D8FF;
+    
+    --text-color: #6E6E6E;
+
+    --orange : #ffdb97 ;
+    
+    --bg-color: #ffefe2;
+    
+    }
+    
+    
+    body {
+    
+    font-family: 'Arial', sans-serif;
+    
+    background-color: var(--bg-color);
+    
+    color: var(--text-color);
+    
+    margin: 0;
+    
+    padding: 0;
+    
+    overflow-x: hidden;
+    
+    }
+    
+    
+    /* HEADER & NAV */
+    
+    .header-sun {
+    
+    display: flex;
+    
+    justify-content: space-between;
+    
+    align-items: center;
+    
+    padding: 10px 40px;
+    
+    background-color: var(--bg-color);
+    
+    }
+    
+    
+    .titre-group {
+    
+    flex-grow: 1;
+    
+    text-align: center;
+    
+    }
+    
+    
+    .titre-rose {
+    
+    color: var(--rose);
+    
+    font-family: 'Pacifico', cursive;
+    
+    font-size: 50px;
+    
+    margin: 0;
+    
+    }
+    
+    
+    
+    .slogan {
+    
+    font-family: 'Arial', sans-serif;
+    
+    font-size: 26px;
+    
+    color: var(--rose);
+    
+    margin-top: 5px;
+    
+    font-style: italic; /* Mis en italique ;) */
+    
+    font-weight: normal;
+    
+    }
+    
+    
+    .remove-bg {
+    
+    height: 150px;
+    
+    width: auto;
+    
+    mix-blend-mode: multiply;
+    
+    filter: contrast(1.2);
+    
+    vertical-align: middle;
+    
+    }
+    
+    
+    .nav-simple {
+    
+    background-color: var(--rose);
+    
+    display: flex;
+    
+    justify-content: center;
+    
+    padding: 10px;
+    
+    }
+    
+    
+    .nav-simple a {
+    
+    color: white;
+    
+    font-weight: bold;
+    
+    padding: 10px 20px;
+    
+    }
+    
+    .zone-recherche-discrete {
+    
+    text-align: center;
+    
+    padding: 15px 0;
+    
+   
+    
+    }
+    
+    
+    .zone-recherche-discrete input {
+    
+    width: 250px;
+    
+    padding: 8px 15px;
+    
+    border: 2px solid var(--rose); 
+    
+    border-radius: 20px;
+    
+    outline: none;
+    
+    font-size: 14px;
+    
+    }
+    
+    
+    .zone-recherche-discrete button {
+    
+    background-color: var(--rose);
+    
+    color: white;
+    
+    border: none;
+    
+    padding: 8px 12px;
+    
+    border-radius: 20px;
+    
+    cursor: pointer;
+    
+    margin-left: -40px;
+    }
+    
+    .notre-histoire {
+    
+    background-color: #fff;
+    
+    padding: 40px 20px;
+    
+    margin: 30px 10%;
+    
+    border-radius: 20px;
+    
+    border: 1px solid var(--jaune);
+    
+    text-align: center;
+    
+    }
+    
+    
+    .section-presentation {
+    
+    padding: 40px 10%;
+    
+    display: flex;
+    
+    justify-content: center;
+    
+    }
+    
+    
+    .contenu-flex {
+    
+    display: flex;
+    
+    align-items: center;
+    
+    gap: 40px;
+    
+    background-color: white;
+    
+    padding: 20px;
+    
+    border-radius: 20px;
+    
+    width: 100%;
+    
+    max-width: 800px;
+    
+    }
+    
+    
+    .inverse .contenu-flex { flex-direction: row-reverse; }
+    
+    
+    .img-zoom {
+    
+    width: 250px;
+    
+    height: 180px;
+    
+    object-fit: cover;
+    
+    border-radius: 15px;
+    
+    border: 3px solid var(--rose);
+    
+    }
+    
+    
+    /* DRAGON CRUSH */
+    
+    .best-seller-unique { text-align: center; padding: 50px 0; margin-bottom: 50px ;}
+    
+    
+    .product.star {
+    
+    margin: 40px auto ;
+    
+    width: 300px;
+    
+    border: 4px solid var(--rose);
+    
+    transform: scale(1.1);
+    
+    position: relative;
+    
+    background-color: var(--orange);
+    
+    padding: 20px;
+    
+    border-radius: 20px;
+    
+    }
+    
+    
+    .badge-star {
+    
+    position: absolute;
+    
+    top: -15px;
+    
+    background: var(--rose);
+    
+    color: white;
+    
+    padding: 5px 15px;
+    
+    border-radius: 20px;
+    
+    font-weight: bold;
+    
+    left: 50%;
+    
+    transform: translateX(-50%);
+    
+    }
+    
+    
+    .product img {
+    
+    width: 100%;
+    
+    height: 200px;
+    
+    object-fit: cover;
+    
+    border-radius: 10px;
+    
+    }
+    
+    
+    /* FOOTER */
+    
+    footer {
+    
+    text-align: center;
+    
+    padding: 20px;
+    
+    background-color: var (--orange);
+    
+    }
+    
+    
+    /* INPUTS */
+    
+    input {
+    
+    width: 100%;
+    
+    max-width: 300px;
+    
+    padding: 10px;
+    
+    border-radius: 10px;
+    
+    border: 1px solid #ccc;
+    
+    } 
+    /* STYLE PAGE INSCRIPTION */
+.form-section {
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.form-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 10px 10px 0px var(--orange); /* Ombre stylée décalée */
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    border: 2px solid var(--rose);
+}
+
+.form-group {
+    display: flex;
+    gap: 10px;
+}
+
+.form-container input, .form-container textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    background-color: #fffaf0; /* Un blanc un peu crème */
+    box-sizing: border-box; /* Évite que ça dépasse */
+}
+
+.form-container h3 {
+    text-align: left;
+    color: var(--bleu);
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.separateur {
+    border: 0;
+    border-top: 2px dashed var(--orange);
+    margin: 20px 0;
+}
+
+.btn-inscription {
+    background-color: var(--rose);
+    color: white;
+    font-size: 18px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.btn-inscription:hover {
+    background-color: #FE48A5;
+    transform: translateY(-2px);
+}
+
+.lien-connexion {
+    margin-top: 15px;
+    font-size: 14px;
+}
