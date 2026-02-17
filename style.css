@@ -399,3 +399,279 @@
     margin-top: 15px;
     font-size: 14px;
 }
+/* Petits ajustements pour la connexion */
+.input-wrapper {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.input-wrapper label {
+    font-weight: bold;
+    color: var(--text-color);
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.mdp-oublie {
+    text-align: right;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.mdp-oublie a {
+    color: var(--text-color);
+    text-decoration: underline;
+}
+
+.mdp-oublie a:hover {
+    color: var(--rose);
+}
+/* --- PAGE ADMIN --- */
+.admin-container {
+    padding: 40px 5%;
+}
+
+.admin-card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.titre-bleu {
+    color: var(--bleu);
+    font-family: 'Pacifico', cursive;
+}
+
+.admin-filters {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.btn-filter {
+    background: #f0f0f0;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.btn-filter.active {
+    background: var(--rose);
+    color: white;
+}
+
+/* Style du Tableau */
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.user-table th {
+    text-align: left;
+    background-color: var(--orange);
+    padding: 12px;
+    color: var(--text-color);
+}
+
+.user-table td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Badges de statut */
+.badge {
+    background: #eee;
+    padding: 4px 10px;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+.badge.commande {
+    background: var(--bleu);
+    color: white;
+}
+
+/* Bouton Voir Profil */
+.btn-view {
+    text-decoration: none;
+    color: var(--rose);
+    font-weight: bold;
+    border: 1px solid var(--rose);
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn-view:hover {
+    background: var(--rose);
+    color: white;
+}
+/* --- DASHBOARD COMMANDES --- */
+.dashboard-commandes {
+    display: flex;
+    gap: 30px;
+    padding: 30px 5%;
+    justify-content: center;
+}
+
+.colonne-commande {
+    flex: 1;
+    max-width: 450px;
+    background: #fdfdfd;
+    border-radius: 20px;
+    padding: 20px;
+    border: 2px solid #eee;
+}
+
+.titre-prep { color: #FF4D4D; text-align: center; } /* Rouge pour l'urgence */
+.titre-liv { color: #4D94FF; text-align: center; }  /* Bleu pour la livraison */
+
+.commande-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 4px 4px 0px #eee;
+}
+
+.commande-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.id-commande { font-weight: bold; color: var(--rose); }
+
+.btn-action-prep {
+    width: 100%;
+    background-color: var(--jaune);
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.2s;
+}
+
+.btn-action-prep:hover {
+    background-color: var(--rose);
+    color: white;
+}
+
+.badge-livraison {
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    font-style: italic;
+    color: #888;
+    margin-top: 10px;
+}
+
+/* Version Smartphone simple pour la dashboard si besoin */
+@media (max-width: 800px) {
+    .dashboard-commandes {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+/* --- STYLE LIVREUR (MOBILE FIRST) --- */
+.body-livreur {
+    background-color: #f4f4f4;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.header-livreur {
+    background-color: var(--rose);
+    color: white;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-livreur h2 { margin: 0; font-size: 18px; }
+
+.back-link { color: white; text-decoration: none; font-size: 14px; }
+
+.container-mobile {
+    padding: 15px;
+    max-width: 500px; /* On simule la largeur d'un téléphone sur PC */
+    margin: 0 auto;
+}
+
+.carte-livraison {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.nom-client { font-size: 24px; margin-bottom: 10px; color: var(--text-color); }
+
+.btn-tel {
+    display: inline-block;
+    background-color: var(--bleu);
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.detail-bloc { margin-top: 25px; }
+
+.detail-bloc h3 {
+    font-size: 14px;
+    color: #888;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.adresse-texte { font-size: 18px; font-weight: bold; margin-bottom: 10px; }
+
+.btn-maps {
+    display: block;
+    text-align: center;
+    background-color: #4285F4; /* Bleu Google Maps */
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.grille-acces {
+    display: flex;
+    gap: 20px;
+    background: #fffaf0;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.comm-livreur {
+    background: #fdf2f8;
+    padding: 10px;
+    border-left: 4px solid var(--rose);
+    font-style: italic;
+}
+
+.btn-valider-livraison {
+    width: 100%;
+    background-color: #28a745; /* Vert pour la validation */
+    color: white;
+    border: none;
+    padding: 18px;
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 30px;
+    cursor: pointer;
+}
