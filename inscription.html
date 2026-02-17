@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>SunSip - Inscription</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="header-sun">
+    <div class="titre-group">
+        <h1 class="titre-rose">Rejoins la SunFamily</h1>
+    </div>
+</header>
+
+<nav class="nav-simple">
+    <a href="acceuil.html">Accueil</a>
+    <a href="produits.html">Carte</a>
+    <a href="inscription.html">S'inscrire</a>
+    <a href="connexion.html">Connexion</a>
+</nav>
+
+<section class="form-section">
+    <div class="form-container">
+        <h2 class="titre-rose" style="font-size: 30px;">Crée ton compte</h2>
+        <form action="#">
+            <div class="form-group">
+                <input type="text" placeholder="Prénom" required>
+                <input type="text" placeholder="Nom" required>
+            </div>
+
+            <input type="email" placeholder="Email" required>
+            <input type="tel" placeholder="Numéro de téléphone" required>
+            <input type="password" placeholder="Mot de passe" required>
+
+            <hr class="separateur">
+
+            <h3>📍 Ton adresse de livraison</h3>
+            <input type="text" placeholder="Adresse complète (N°, rue...)" required>
+            
+            <div class="form-group">
+                <input type="text" placeholder="Code Postal" required>
+                <input type="text" placeholder="Ville" required>
+            </div>
+
+            <h3>🔑 Accès livreur</h3>
+            <div class="form-group">
+                <input type="text" placeholder="Étage">
+                <input type="text" placeholder="Code Interphone">
+            </div>
+            <textarea placeholder="Instructions pour le livreur (ex: 'Bâtiment B au fond de la cour', 'Laisser devant la porte')..."></textarea>
+
+            <button type="submit" class="btn-inscription">M'inscrire et commander 🍹</button>
+        </form>
+        <p class="lien-connexion">Déjà membre ? <a href="connexion.html">Connecte-toi ici</a></p>
+    </div>
+</section>
+
+<footer>
+    <p>SunSip - 2026</p>
+</footer>
+
+</body>
+</html>
