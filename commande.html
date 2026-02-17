@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Gestion des Commandes - SunSip</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body class="restaurateur-view">
+
+<header class="header-sun">
+    <h1 class="titre-rose">Commandes du jour </h1>
+</header>
+
+<nav class="nav-simple">
+    <a href="acceuil.html">Accueil</a>
+    <a href="admin.html">Utilisateurs</a>
+    <a href="commandes.html">Commandes</a>
+</nav>
+
+<main class="dashboard-commandes">
+    <section class="colonne-commande prep">
+        <h2 class="titre-prep"> À préparer</h2>
+        
+        <div class="commande-card">
+            <div class="commande-header">
+                <span class="id-commande">#452</span>
+                <span class="heure">14:15</span>
+            </div>
+            <p class="details"><strong>1x Dragon Crush</strong><br>1x Salade de fruits (Custom)</p>
+            <p class="client">Client : Julie Sun</p>
+            <button class="btn-action-prep">Passer en livraison </button>
+        </div>
+
+        <div class="commande-card">
+            <div class="commande-header">
+                <span class="id-commande">#453</span>
+                <span class="heure">14:20</span>
+            </div>
+            <p class="details"><strong>2x Sunshine Mix</strong></p>
+            <p class="client">Client : Marc Frais</p>
+            <button class="btn-action-prep">Passer en livraison </button>
+        </div>
+    </section>
+
+    <section class="colonne-commande liv">
+        <h2 class="titre-liv"> En livraison</h2>
+        
+        <div class="commande-card en-route">
+            <div class="commande-header">
+                <span class="id-commande">#450</span>
+                <span class="statut">Parti à 13:50</span>
+            </div>
+            <p class="details"><strong>1x Coco-Berry</strong></p>
+            <p class="client">Livreur : Ahmed (Velo)</p>
+            <span class="badge-livraison">En attente de confirmation...</span>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>Session Restaurateur : SunSip </p>
+</footer>
+
+</body>
+</html>
