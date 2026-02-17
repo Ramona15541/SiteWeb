@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>SunSip - Administration</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body class="admin-body">
+
+<header class="header-sun">
+    <h1 class="titre-rose">Tableau de Bord Admin</h1>
+</header>
+
+<nav class="nav-simple">
+    <a href="acceuil.html">Accueil</a>
+    <a href="admin.html">Utilisateurs</a>
+    <a href="commandes.html">Commandes</a> </nav>
+
+<section class="admin-container">
+    <div class="admin-card">
+        <h2 class="titre-bleu">Gestion des Utilisateurs</h2>
+
+        <div class="admin-filters">
+            <button class="btn-filter active">Tous</button>
+            <button class="btn-filter">Avec commandes</button>
+            <button class="btn-filter">Sans commandes</button>
+        </div>
+
+        <table class="user-table">
+            <thead>
+                <tr>
+                    <th>Nom / Prénom</th>
+                    <th>Email</th>
+                    <th>Statut</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Amina jolie</td>
+                    <td>amina@jolie.com</td>
+                    <td><span class="badge commande">A commandé</span></td>
+                    <td><a href="profil.html" class="btn-view">Voir Profil</a></td>
+                </tr>
+                <tr>
+                    <td>Maria charmante</td>
+                    <td>maria@charmante.fr</td>
+                    <td><span class="badge">Nouveau</span></td>
+                    <td><a href="profil.html" class="btn-view">Voir Profil</a></td>
+                </tr>
+                <tr>
+                    <td>Fatu bisous</td>
+                    <td>fatu@bisous.com</td>
+                    <td><span class="badge commande">A commandé</span></td>
+                    <td><a href="profil.html" class="btn-view">Voir Profil</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<footer>
+    <p>Espace sécurisé - SunSip Admin</p>
+</footer>
+
+</body>
+</html>
