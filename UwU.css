@@ -1,3 +1,58 @@
+.page-produits {
+    display: flex;
+    gap: 20px;
+    padding: 20px 5%;
+}
+
+.sidebar-filtres {
+    width: 250px;
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    height: fit-content;
+    border: 2px solid var(--jaune);
+}
+
+.groupe-filtre {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.groupe-filtre h3 {
+    font-size: 16px;
+    color: var(--rose);
+    margin-bottom: 10px;
+}
+
+.grille-produits {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.btn-compose-special {
+    display: block;
+    text-align: center;
+    background: var(--rose);
+    color: white;
+    padding: 12px;
+    border-radius: 15px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 20px;
+    animation: pulse 2s infinite; /* Pour attirer l'oeil */
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+
+
 :root {
     --jaune: #ffe7d3; 
     --rose: #FF9ECF;  
