@@ -1,81 +1,126 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="utf-8">
-    <title>La Carte - SunSip</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-</head>
-<body>
+:root {
+    --jaune: #ffe7d3; 
+    --rose: #FF9ECF;  
+    --bleu: #A7D8FF;  
+    --text-color: #6E6E6E;
+    --bg-color: #ffefe2;
+}
 
-<header class="header-sun">
-    <h1 class="titre-rose">La Carte SunSip</h1>
-    <img src="logo.jpeg" alt="Logo" class="remove-bg">
-</header>
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+}
 
-<nav class="nav-simple">
-    <a href="acceuil.html">Accueil</a>
-    <a href="produits.html">Carte</a>
-    <a href="inscription.html">S'inscrire</a>
-    <a href="pagedeconnexion.html">Connexion</a>
-</nav>
+/* --- MISE EN PAGE --- */
+.main-container {
+    display: flex;
+    padding: 30px;
+    gap: 30px;
+}
 
-<div class="main-container">
-    <aside class="claire">
-        <div class="menu">Filtres ✨</div>
-        
-        <div class="groupe-filtre">
-            <h3>Recherche</h3>
-            <input type="text" placeholder="Un fruit, un nom..." class="input-filtre">
-        </div>
+/* --- FILTRES (Version Claire améliorée) --- */
+.claire {
+    background-color: white; /* Fond blanc pour que le jaune ressorte en bordure */
+    padding: 20px;
+    border-radius: 20px;
+    width: 250px;
+    height: fit-content;
+    border: 3px solid var(--jaune);
+    box-shadow: 8px 8px 0px var(--jaune);
+}
 
-        <div class="groupe-filtre">
-            <h3>Catégories</h3>
-            <ul>
-                <li><label><input type="checkbox"> Smoothies</label></li>
-                <li><label><input type="checkbox"> Salades</label></li>
-                <li><label><input type="checkbox"> Jus Frais</label></li>
-            </ul>
-        </div>
+.claire .menu {
+    font-family: 'Pacifico', cursive;
+    color: var(--rose);
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    text-align: center;
+}
 
-        <div class="groupe-filtre">
-            <h3>Allergènes</h3>
-            <ul>
-                <li><label><input type="checkbox"> Sans Lactose</label></li>
-                <li><label><input type="checkbox"> Sans Gluten</label></li>
-            </ul>
-        </div>
+.groupe-filtre h3 {
+    font-size: 14px;
+    color: var(--rose);
+    text-transform: uppercase;
+    margin: 15px 0 5px 0;
+}
 
-        <a href="composer.html" class="btn-compose-special">🍉 Compose ta salade</a>
-    </aside>
+.claire ul { list-style: none; padding: 0; }
+.claire li { margin: 8px 0; font-size: 14px; }
 
-    <section class="products-grid">
-        <h2 class="section-title">Nos Smoothies Stars</h2>
-        
-        <div class="product">
-            <img src="image4.jpg" alt="Dragon Crush">
-            <h3>Dragon Crush</h3>
-            <p>Fruit du dragon & Fraise</p>
-            <span class="price">7.50€</span>
-            <br><br>
-            <button class="add-btn">Ajouter 🛒</button>
-        </div>
+.input-filtre {
+    width: 100%;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid var(--jaune);
+    box-sizing: border-box;
+}
 
-        <div class="product">
-            <img src="sunshine.jpg" alt="Sunshine Mix">
-            <h3>Sunshine Mix</h3>
-            <p>Mangue & Passion</p>
-            <span class="price">6.50€</span>
-            <br><br>
-            <button class="add-btn">Ajouter 🛒</button>
-        </div>
+/* --- GRILLE PRODUITS --- */
+.products-grid {
+    flex-grow: 1;
+}
 
-        </section>
-</div>
+.section-title {
+    color: var(--rose);
+    border-bottom: 3px solid var(--jaune);
+    padding-bottom: 5px;
+    font-family: 'Pacifico', cursive;
+}
 
-<footer>
-    <p>SunSip - Fraîcheur & Gourmandise &copy; 2026</p>
-</footer>
+.product {
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 15px;
+    display: inline-block;
+    width: 220px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid #eee;
+}
 
-</body>
-</html>
+.product:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.product img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.price {
+    display: block;
+    margin-top: 10px;
+    color: var(--rose);
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.add-btn {
+    background-color: var(--rose);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* --- BOUTON SPECIAL --- */
+.btn-compose-special {
+    display: block;
+    text-align: center;
+    background: var(--jaune);
+    color: var(--text-color);
+    padding: 12px;
+    border-radius: 15px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 25px;
+    border: 2px dashed var(--rose);
+}
