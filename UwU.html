@@ -54,102 +54,81 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>SunSip - Notre Carte</title>
-    <link rel="stylesheet" href="UwU.css">
+    <title>SunSip - Accueil</title>
+    <link rel="stylesheet" href="z.css">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="nappe">
 
 <header class="header-sun">
     <div class="titre-group">
         <h1 class="titre-rose">SunSip</h1>
-        <p class="slogan">"Des fruits au frais, rien que pour vos palais !"</p>
+        <p class="slogan">"Frais et délicieux : Le smoothie qui défie le soleil de Bangkok !"</p>
     </div>
     <img src="logo.jpeg" alt="Logo SunSip" class="remove-bg">
 </header>
 
 <nav class="nav-simple">
     <a href="page_dacceuil.html">Accueil</a>
-    <a href="produits.html">Carte</a>
+    <a href="z.html">Carte</a>
     <a href="inscription.html">S'inscrire</a>
     <a href="connexion.html">Connexion</a>
-    <a href="profil.html">Mon Profil</a>
+    <a href="trier.html">Mon profil</a>
+    <a href="znote.html">Notation</a>
     <a href="livraison.html" class="pro">Livreur</a>
 </nav>
 
-<section class="recherche-container">
-    <div class="clair">
-        <h2>Recherche de douceurs</h2>
-        <input type="text" placeholder="Un smoothie, une crêpe...">
-        <button>Rechercher</button>
+<h2 class="titr">Recherche de desserts</h2>
+    <div class="zone">
+    <input type="text" placeholder="Trouver un smoothie...">
+    <button>🔍</button>
+</div>
+</section>
+<section class="form-section">
+    <div class="form-container" style="max-width: 300px;"> <h2 class="titre-rose" style="font-size: 30px; margin-bottom: 20px;">Menu</h2>
+        
+        <nav>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+                <li style="margin-bottom: 15px;">
+                    <a href="#smoothies" class="btn-inscription" style="display: block; text-decoration: none; font-size: 16px; padding: 10px;">
+                        Smoothies
+                    </a>
+                </li>
+                <li style="margin-bottom: 5px;">
+                    <a href="#salades" class="btn-inscription" style="display: block; text-decoration: none; font-size: 16px; padding: 10px;">
+                        Salades de fruits
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</section>
+<br/>
+<br/>
+<br/>
+
+</nav>
+    <div id="salades" class="product">
+        <img src="saladedefruits.jpg" alt="Salade de fruits">
+        <p>Salade de fruits fraîche</p>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <div id="smoothies" class="product">
+        <img src="s2.jpg" alt="Smoothie">
+        <p>Smoothie citron</p>
+    </div>
+    <div class="product">
+        <img src="s1.jpg" alt="Smoothie">
+        <p>Smoothie fruits rouge</p>
     </div>
 </section>
 
-<div class="main-container">
-    
-    <aside class="claire">
-        <p class="menu">Catégories</p>
-        <ul>
-            <li><a href="#smoothies">Smoothies</a></li>
-            <li><a href="#milkshakes">Milkshakes</a></li>
-            <li><a href="#crepes">Crêpes</a></li>
-            <li><a href="#gaufres">Gaufres</a></li>
-            <li><a href="#salades">Salades de fruits</a></li>
-        </ul>
-    </aside>
+<footer>SunSip</footer>
 
-    <main class="products-grid">
-        
-        <div class="categorie-header">
-            <img src="image2.jpg" alt="Smoothies" class="img-categorie">
-            <h2 id="smoothies" class="section-title">Nos Smoothies</h2>
-        </div>
-        <div class="product-list">
-            <div class="product">
-                <img src="s2.jpg" alt="Smoothie citron">
-                <p>Smoothie citron</p>
-                <span class="price">5.50€</span>
-            </div>
-            <div class="product">
-                <img src="s1.jpg" alt="Smoothie rouge">
-                <p>Smoothie fruits rouges</p>
-                <span class="price">6.00€</span>
-            </div>
-        </div>
 
-        <div class="categorie-header">
-            <img src="crepe1.jpg" alt="Crêpes" class="img-categorie">
-            <h2 id="crepes" class="section-title">Nos Crêpes</h2>
-        </div>
-        <div class="product-list">
-            <div class="product">
-                <img src="crepe2.jpg" alt="Crêpe chocolat">
-                <p>Crêpe chocolat</p>
-                <span class="price">4.50€</span>
-            </div>
-            <div class="product">
-                <img src="crepe1.jpg" alt="Crêpe fraise">
-                <p>Crêpe fraise</p>
-                <span class="price">4.50€</span>
-            </div>
-        </div>
-
-        <div class="categorie-header">
-            <img src="gaufrechocolat.jpg" alt="Gaufres" class="img-categorie">
-            <h2 id="gaufres" class="section-title">Nos Gaufres</h2>
-        </div>
-        <div class="product">
-            <img src="gaufrechocolat.jpg" alt="Gaufre">
-            <p>Gaufre chocolat</p>
-            <span class="price">5.00€</span>
-        </div>
-
-    </main>
-</div>
-
-<footer>
-    <p>SunSip - Fraîcheur & Gourmandise &copy; 2026</p>
-</footer>
 
 </body>
 </html>
+
