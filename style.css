@@ -103,6 +103,19 @@
     vertical-align: middle;
     
     }
+    .remove-bb{
+    
+    height: 40px;
+    
+    width: auto;
+    
+    mix-blend-mode: multiply;
+    
+    filter: contrast(1.2);
+    
+    vertical-align: middle;
+    
+    }
     
     
     .nav-simple {
@@ -336,6 +349,8 @@
     display: flex;
     justify-content: center;
 }
+
+ 
 
 .form-container {
     background-color: white;
@@ -574,14 +589,14 @@
     margin-top: 10px;
 }
 
-/* Version Smartphone simple pour la dashboard si besoin */
+
 @media (max-width: 800px) {
     .dashboard-commandes {
         flex-direction: column;
         align-items: center;
     }
 }
-/* --- STYLE LIVREUR (MOBILE FIRST) --- */
+
 .body-livreur {
     background-color: #f4f4f4;
     font-family: 'Segoe UI', sans-serif;
@@ -675,3 +690,44 @@
     margin-top: 30px;
     cursor: pointer;
 }
+ /* --- STYLE TEXTE PRESENTATION --- */
+.texte-presentation {
+    font-family: 'Quicksand', sans-serif; /* La nouvelle police toute ronde */
+    font-size: 19px;
+    line-height: 1.7;
+    color: var(--text-color);
+    text-align: left; /* Plus moderne que justify pour cette police */
+    margin-bottom: 20px;
+    font-weight: 400; /* Poids normal */
+}
+
+.texte-presentation strong {
+    color: var(--rose); /* Pour mettre des mots en gras et en rose */
+    font-weight: 600;
+}
+
+footer {
+    background-color: var(--orange);
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.footer-simple p {
+    margin: 5px 0;
+    color: var(--text-color);
+}
+
+.insta-pote strong {
+    color: var(--rose);
+}
+
+.mini-barre {
+    width: 50px;
+    border: 1px solid var(--rose);
+    margin: 10px auto;
+    opacity: 0.5;
+}
+
+/* Si tu veux une police un peu plus "stylée" pour une intro par exemple */
