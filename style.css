@@ -1,361 +1,282 @@
+/*--------------------------------------------------------------------------------
+1. VARIABLES ET BASES(COMMUN A TOUS LE SITE)
+---------------------------------------------------------------------------------*/
 :root {
 
     --jaune: #FFE66D;
-    
     --rose: #FF9ECF;
-    
     --bleu: #A7D8FF;
-    
     --text-color: #6E6E6E;
-
     --orange : #ffdb97 ;
-    
     --bg-color: #ffefe2;
     
     }
-    
-    
+
     body {
-    
     font-family: 'Arial', sans-serif;
-    
     background-color: var(--bg-color);
-    
     color: var(--text-color);
-    
     margin: 0;
-    
     padding: 0;
-    
     overflow-x: hidden;
     
     }
-    
-    
-    /* HEADER & NAV */
-    
-    .header-sun {
-    
-    display: flex;
-    
-    justify-content: space-between;
-    
-    align-items: center;
-    
-    padding: 10px 40px;
-    
-    background-color: var(--bg-color);
-    
-    }
-    
-    
-    .titre-group {
-    
-    flex-grow: 1;
-    
-    text-align: center;
-    
-    }
-    
-    
-    .titre-rose {
-    
-    color: var(--rose);
-    
-    font-family: 'Pacifico', cursive;
-    
-    font-size: 50px;
-    
-    margin: 0;
-    
-    }
-    
-    
-    
-    .slogan {
-    
-    font-family: 'Arial', sans-serif;
-    
-    font-size: 26px;
-    
-    color: var(--rose);
-    
-    margin-top: 5px;
-    
-    font-style: italic; /* Mis en italique ;) */
-    
-    font-weight: normal;
-    
-    }
-    
-    
-    .remove-bg {
-    
-    height: 150px;
-    
-    width: auto;
-    
-    mix-blend-mode: multiply;
-    
-    filter: contrast(1.2);
-    
-    vertical-align: middle;
-    
-    }
-    .remove-bb{
-    
-    height: 40px;
-    
-    width: auto;
-    
-    mix-blend-mode: multiply;
-    
-    filter: contrast(1.2);
-    
-    vertical-align: middle;
-    
-    }
-    
-    
-    .nav-simple {
-    
-    background-color: var(--rose);
-    
-    display: flex;
-    
-    justify-content: center;
-    
+      input {
+    width: 100%;
+    max-width: 300px;
     padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    } 
     
+    
+    /* ----------------------------------------------------------------------------
+    2. NAVIGATION ET FOOTER 
+    --------------------------------------------------------------------------------*/
+    .nav {
+    background-color: var(--rose);
+    display: flex;
+    justify-content: center;
+    padding: 10px;
     }
-    
-    
-    .nav-simple a {
-    
+
+    .nav a {
     color: white;
-    
     font-weight: bold;
-    
     padding: 10px 20px;
     
     }
+       footer {
+    background-color: var(--orange);
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.footer-2 p {
+    margin: 5px 0;
+    color: var(--text-color);
+}
+
+.insta-pote strong {
+    color: var(--rose);
+}
+
+.mini-barre {
+    width: 50px;
+    border: 1px solid var(--rose);
+    margin: 10px auto;
+    opacity: 0.5;
+}
+.logo-footer {
     
-    .zone-recherche-discrete {
+    height: 120px;
     
+    width: auto;
+    
+    mix-blend-mode: multiply;
+    
+    filter: contrast(1.2);
+    float : left;
+    
+    vertical-align: left;
+    
+    }
+
+
+
+/*----------------------------------------------------------------------------------
+3. PAGE D'ACCEUIL (acceuil.htmll)
+----------------------------------------------------------------------------------*/
+    
+
+    /*header*/
+    .header-sun {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    background-color: var(--bg-color);
+    
+    }
+    .titre-group {
+    flex-grow: 1;
     text-align: center;
     
+    }
+    
+    .titre-rose {
+    color: var(--rose);
+    font-family: 'Pacifico', cursive;
+    font-size: 50px;
+    margin: 0;
+    }
+    
+    .slogan {
+    font-family: 'Arial', sans-serif;
+    font-size: 26px;
+    color: var(--rose);
+    margin-top: 5px;
+    font-style: italic; 
+    font-weight: normal;
+    
+    }
+    .logo-header {
+    height: 150px;
+    width: auto;
+    mix-blend-mode: multiply;
+    filter: contrast(1.2);
+    vertical-align: middle;
+    }
+
+    /*recherche */
+    .zone-recherche {
+    text-align: center;
     padding: 15px 0;
-    
-   
-    
     }
     
-    
-    .zone-recherche-discrete input {
-    
+    .zone-recherche input {
     width: 250px;
-    
     padding: 8px 15px;
-    
     border: 2px solid var(--rose); 
-    
     border-radius: 20px;
-    
-    outline: none;
-    
     font-size: 14px;
-    
     }
     
-    
-    .zone-recherche-discrete button {
-    
+    .zone-recherche button {
     background-color: var(--rose);
-    
     color: white;
-    
     border: none;
-    
     padding: 8px 12px;
-    
     border-radius: 20px;
-    
     cursor: pointer;
-    
     margin-left: -40px;
     }
-    
+
+
+    .texte-presentation {
+    font-family: 'Quicksand', sans-serif; 
+    font-size: 19px;
+    line-height: 1.7;
+    color: var(--text-color);
+    text-align: left; 
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.texte-presentation strong {
+    color: var(--rose);
+    font-weight: 600;
+}
     .notre-histoire {
-    
     background-color: #fff;
-    
     padding: 40px 20px;
-    
     margin: 30px 10%;
-    
     border-radius: 20px;
-    
     border: 1px solid var(--jaune);
-    
     text-align: center;
-    
+    }
+    .histoire-container {
+    max-width: 700px; 
+    margin: 0 auto;   
+}
+
+.logo-signature{
+    height: 40px;
+    width: auto;
+    mix-blend-mode: multiply;
+    filter: contrast(1.2);
+    vertical-align: middle;
     }
     
     
     .section-presentation {
-    
     padding: 40px 10%;
-    
     display: flex;
-    
     justify-content: center;
     
     }
     
     
     .contenu-flex {
-    
     display: flex;
-    
     align-items: center;
-    
     gap: 40px;
-    
     background-color: white;
-    
     padding: 20px;
-    
     border-radius: 20px;
-    
     width: 100%;
-    
     max-width: 800px;
     
     }
-    
-    
     .inverse .contenu-flex { flex-direction: row-reverse; }
     
     
     .img-zoom {
-    
     width: 250px;
-    
     height: 180px;
-    
     object-fit: cover;
-    
     border-radius: 15px;
-    
     border: 3px solid var(--rose);
     
     }
     
     
-    /* DRAGON CRUSH */
     
     .best-seller-unique { text-align: center; padding: 50px 0; margin-bottom: 50px ;}
-    
     
     .product.star {
     
     margin: 40px auto ;
-    
     width: 300px;
-    
     border: 4px solid var(--rose);
-    
     transform: scale(1.1);
-    
     position: relative;
-    
     background-color: var(--orange);
-    
     padding: 20px;
-    
     border-radius: 20px;
     
     }
     
-    
     .badge-star {
-    
     position: absolute;
-    
     top: -15px;
-    
     background: var(--rose);
-    
     color: white;
-    
     padding: 5px 15px;
-    
     border-radius: 20px;
-    
     font-weight: bold;
-    
     left: 50%;
-    
     transform: translateX(-50%);
-    
     }
     
     
     .product img {
-    
     width: 100%;
-    
     height: 200px;
-    
     object-fit: cover;
-    
     border-radius: 10px;
-    
     }
     
     
-    /* FOOTER */
     
-    footer {
-    
-    text-align: center;
-    
-    padding: 20px;
-    
-    background-color: var (--orange);
-    
-    }
-    
-    
-    /* INPUTS */
-    
-    input {
-    
-    width: 100%;
-    
-    max-width: 300px;
-    
-    padding: 10px;
-    
-    border-radius: 10px;
-    
-    border: 1px solid #ccc;
-    
-    } 
-    /* STYLE PAGE INSCRIPTION */
+
+/*---------------------------------------------------------------------------------
+4.PAGE D'INSCRPTION / CONNEXION 
+----------------------------------------------------------------------------------*/
+   
 .form-section {
     padding: 40px 0;
     display: flex;
     justify-content: center;
 }
 
- 
-
 .form-container {
     background-color: white;
     padding: 30px;
     border-radius: 30px;
-    box-shadow: 10px 10px 0px var(--orange); /* Ombre stylée décalée */
+    box-shadow: 10px 10px 0px var(--orange); 
     width: 90%;
     max-width: 500px;
     text-align: center;
@@ -373,8 +294,8 @@
     margin: 10px 0;
     border-radius: 15px;
     border: 1px solid #ddd;
-    background-color: #fffaf0; /* Un blanc un peu crème */
-    box-sizing: border-box; /* Évite que ça dépasse */
+    background-color: #fffaf0; 
+    box-sizing: border-box; 
 }
 
 .form-container h3 {
@@ -413,7 +334,9 @@
     margin-top: 15px;
     font-size: 14px;
 }
-/* Petits ajustements pour la connexion */
+
+
+
 .input-wrapper {
     text-align: left;
     margin-bottom: 15px;
@@ -440,7 +363,14 @@
 .mdp-oublie a:hover {
     color: var(--rose);
 }
-/* --- PAGE ADMIN --- */
+
+
+
+
+
+/* ------------------------------------------------------------------------------
+5. PAGE ADMIN 
+--------------------------------------------------------------------------------- */
 .admin-container {
     padding: 40px 5%;
 }
@@ -476,7 +406,7 @@
     color: white;
 }
 
-/* Style du Tableau */
+/* Tableau */
 .user-table {
     width: 100%;
     border-collapse: collapse;
@@ -495,7 +425,7 @@
     border-bottom: 1px solid #eee;
 }
 
-/* Badges de statut */
+
 .badge {
     background: #eee;
     padding: 4px 10px;
@@ -508,7 +438,7 @@
     color: white;
 }
 
-/* Bouton Voir Profil */
+
 .btn-view {
     text-decoration: none;
     color: var(--rose);
@@ -523,7 +453,9 @@
     background: var(--rose);
     color: white;
 }
-/* --- DASHBOARD COMMANDES --- */
+/* ---------------------------------------------------------------------------------
+ 6.PAGES COMMANDES
+ -------------------------------------------------------------------------------- */
 .dashboard-commandes {
     display: flex;
     gap: 30px;
@@ -540,8 +472,8 @@
     border: 2px solid #eee;
 }
 
-.titre-prep { color: #FF4D4D; text-align: center; } /* Rouge pour l'urgence */
-.titre-liv { color: #4D94FF; text-align: center; }  /* Bleu pour la livraison */
+.titre-prep { color: #FF4D4D; text-align: center; } 
+.titre-liv { color: #4D94FF; text-align: center; }  
 
 .commande-card {
     background: white;
@@ -596,6 +528,9 @@
     }
 }
 
+/*-------------------------------------------------------------------------------------
+7. PAGE DE LIVRAISON 
+*/--------------------------------------------------------------------------------------
 .body-livreur {
     background-color: #f4f4f4;
     font-family: 'Segoe UI', sans-serif;
@@ -679,7 +614,7 @@
 
 .btn-valider-livraison {
     width: 100%;
-    background-color: #28a745; /* Vert pour la validation */
+    background-color: #28a745; 
     color: white;
     border: none;
     padding: 18px;
@@ -689,44 +624,8 @@
     margin-top: 30px;
     cursor: pointer;
 }
- /* --- STYLE TEXTE PRESENTATION --- */
-.texte-presentation {
-    font-family: 'Quicksand', sans-serif; /* La nouvelle police toute ronde */
-    font-size: 19px;
-    line-height: 1.7;
-    color: var(--text-color);
-    text-align: left; /* Plus moderne que justify pour cette police */
-    margin-bottom: 20px;
-    font-weight: 400; /* Poids normal */
-}
 
-.texte-presentation strong {
-    color: var(--rose); /* Pour mettre des mots en gras et en rose */
-    font-weight: 600;
-}
 
-footer {
-    background-color: var(--orange);
-    text-align: center;
-    padding: 20px;
-    margin-top: 50px;
-    font-family: 'Quicksand', sans-serif;
-}
 
-.footer-simple p {
-    margin: 5px 0;
-    color: var(--text-color);
-}
 
-.insta-pote strong {
-    color: var(--rose);
-}
 
-.mini-barre {
-    width: 50px;
-    border: 1px solid var(--rose);
-    margin: 10px auto;
-    opacity: 0.5;
-}
-
-/* Si tu veux une police un peu plus "stylée" pour une intro par exemple */
