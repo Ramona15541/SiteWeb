@@ -2,49 +2,55 @@
 <html lang="fr">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>SunSip - Livraison en cours</title>
+    <title>SunSip - Connexion</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
-<body class="body-livreur">
+<body>
 
-<header class="header-livreur">
-    <a href="acceuil.html" class="back-link">⬅ Retour</a>
-    <h2>Livraison #450</h2>
+<header class="header-sun">
+    <div class="titre-group">
+        <h1 class="titre-rose">Bon retour chez SunSip !</h1>
+    </div>
 </header>
 
-<main class="container-mobile">
-    <section class="carte-livraison">
-        <div class="client-info">
-            <h1 class="nom-client">Julie Sun</h1>
-            <a href="tel:0601020304" class="btn-tel">📞 Appeler le client</a>
-        </div>
+<nav class="nav-simple">
+    <a href="acceuil.html">Accueil</a>
+    <a href="produits.html">Carte</a>
+    <a href="inscription.html">S'inscrire</a>
+    <a href="pagedeconnexion.html">Connexion</a>
+</nav>
 
-        <hr class="separateur-livreur">
-
-        <div class="detail-bloc">
-            <h3> Adresse de livraison : </h3>
-            <p class="adresse-texte">12 rue du Smoothie, 75000 Paris</p>
-            <a href="https://www.google.com/maps/search/?api=1&query=12+rue+du+Smoothie+75000+Paris" target="_blank" class="btn-maps">
-                Ouvrir dans Maps / Waze 
-            </a>
-        </div>
-
-        <div class="detail-bloc">
-            <h3> Info d'accès</h3>
-            <div class="grille-acces">
-                <div class="item-acces"><strong>Étage :</strong> 4ème</div>
-                <div class="item-acces"><strong>Code :</strong> 25A8</div>
+<section class="form-section">
+    <div class="form-container">
+        <h2 class="titre-rose" style="font-size: 30px;">Se connecter</h2>
+        <form action="profil.html"> <div class="input-wrapper">
+                <label>Ton Email</label>
+                <input type="email" placeholder="soleil@exemple.com" required>
             </div>
-        </div>
 
-        <div class="detail-bloc">
-            <h3>Instructions</h3>
-            <p class="comm-livreur">" ex: bâtiment est au fond à gauche</p>
-        </div>
+            <div class="input-wrapper">
+                <label>Ton Mot de passe</label>
+                <input type="password" placeholder="********" required>
+            </div>
 
-        <button class="btn-valider-livraison">Marquer comme LIVRÉ </button>
-    </section>
-</main>
+            <p class="mdp-oublie"><a href="#">Mot de passe oublié ?</a></p>
+
+            <button type="submit" class="btn-inscription">Aller chercher mon smoothie !</button>
+        </form>
+        
+        <p class="lien-connexion">Pas encore de compte ? <a href="inscription.html">Inscris-toi ici</a></p>
+    </div>
+</section>
+<footer>
+    <div class="footer-simple">
+        <p>📍 12 rue du Smoothie, Sunsippy | mail: hello@sunsip.fr</p>
+        <p class="insta-pote">Suivez-nous sur Insta : <strong>@SunSip_Fresh</strong> </p>
+        <hr class="mini-barre">
+        <p>SunSip &copy; 2026 - Fait avec amour 🍓</p>
+    </div>
+</footer>
+</body>
 
 </body>
 </html>
