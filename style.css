@@ -1,76 +1,349 @@
-/*--------------------------------------------------------------------------------
-1. VARIABLES ET BASES(COMMUN A TOUS LE SITE)
----------------------------------------------------------------------------------*/
 :root {
-
-    --jaune: #FFE66D;
-    --rose: #FF9ECF;
-    --bleu: #A7D8FF;
-    --text-color: #6E6E6E;
-    --orange : #ffdb97 ;
+    --orange: #ffdb97;
+    --jaune: #ffe7d3; 
+    --rose: #ff8ec7;  
+    --rose-dark: #FE48A5;
+    --bleu: #A7D8FF;  
+    --bleu-dark: #5CB9FF;
     --bg-color: #ffefe2;
+    --white: #ffffff;
+    --text-color: #6E6E6E;
+}
+
     
-    }
 
 
-    body {
-    font-family: 'Arial', sans-serif;
-    background-color: var(--bg-color);
+/* RESET & BASE */
+body, .tablecloth {
+    font-family:Georgia, 'Times New Roman', Times, serif; /* La nouvelle police toute ronde */
+    font-size: 19px;
+    line-height: 1.7;
     color: var(--text-color);
+    text-align: left; /* Plus moderne que justify pour cette police */
+    margin-bottom: 20px;
+    font-weight: 400;
+    background-color: var(--bg-color);
+    color: var(--rose);
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
-    
-    }
-      input {
-    width: 100%;
-    max-width: 300px;
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    } 
-    
-    
-    /* ----------------------------------------------------------------------------
-    2. NAVIGATION ET FOOTER 
-    --------------------------------------------------------------------------------*/
-    .nav {
+}
+
+/* HEADER */
+.headersun {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.titlegroup {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.titlepink {
+    font-family: 'Pacifico', cursive;
+    color: var(--rose); 
+    font-size: 50px; 
+    margin: 0;
+}
+
+.slogan {
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 16px;
+    font-style: italic;
+}
+
+/* NAVIGATION PRINCIPALE */
+.navsimple {
+    font-family:Georgia, 'Times New Roman', Times, serif;
     background-color: var(--rose);
     display: flex;
     justify-content: center;
-    padding: 10px;
-    }
+    flex-wrap: wrap;
+    padding: 5px;
+    transform: translateY(-5px);
+}
 
-    .nav a {
-    color: white;
+.navsimple a {
+    color: var(--white);
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
     padding: 10px 20px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.navsimple a:hover {
+    font-family:'Pacifico', cursive ;
+    background-color: var(--bleu);
+    color: var(--rose-dark);
+    border-radius: 5px;
+    transform: translateY(-4px); 
+}
+
+/* RECHERCHE */
+.zone {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.zone input {
+    width: 250px;
+    padding: 10px 20px;
+    border: 2px solid var(--rose); 
+    border-radius: 20px;
+    outline: none;
+}
+
+.zone button {
+    background-color: var(--rose);
+    color: var(--white);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-left: -45px;
+}
+
+
+/* CARTES PRODUITS */
+.product {
+    background-color: var(--orange);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    padding: 15px;
+    margin: 15px;
+    display: inline-block;
+    width: 220px;
+    text-align: center;
+    transition: 0.3s;
     
-    }
+}
+
+.product:hover { transform: translateY(-5px); }
+
+.product img {
+    width: 100%;
+    height: 180px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* FORMULAIRES & BOITES DE CONTENU (Inscr, Profil, Note) */
+.formsection, .formsectionn {
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+    
+    
+}
+
+.formcontainer, .formcontainerr {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 10px 10px 0px var(--orange);
+    width: 90%;
+    max-width: 450px;
+    border: 2px solid var(--rose);
+    
+    
+    
+}
+
+/* INPUTS DANS FORMULAIRES */
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    background-color: #fffaf0;
+    box-sizing: border-box; /* Important pour que 100% de large ne dépasse pas */
+}
+
+/* BOUTONS */
+.btninscription, button[type="submit"] {
+    background-color: var(--rose);
+    color: var(--white);
+    font-size: 18px;
+    padding: 15px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btninscription:hover {
+    background-color: var(--rose-dark);
+    transform: scale(1.02);
+}
+
+.plus{
+    color:#ff8ec7;
+    text-decoration: none;
+    text-align: center;
+  display: flex;
+  justify-content: center; /* Centre horizontalement */
+  align-items: center; 
+  transition: 0.3s;    /* Centre verticalement */
+            /* Hauteur plein écran pour l'exemple */
+}
+.plus:hover{
+    transform: translateY(-3px);
+    color:#5CB9FF;
+
+}
+.title{
+    text-align: center;
+}
+
+/* IMAGES & LOGO */
+.removebg {
+    mix-blend-mode: multiply;
+    filter: contrast(1.1);
+    height: 120px;
+    vertical-align: middle;
+}
+
+.signature{
+    font-family: 'Pacifico'; 
+    color: var(--rose);
+}
+.grade{
+    text-align: left; 
+    margin-bottom: 15px;
+}
+.ratingorder{
+    color: var(--orange); 
+    font-weight: bold; 
+    margin-bottom: 20px;
+}
+.gradestyle{
+    color: var(--rose); 
+    font-weight: bold; 
+    display: block; 
+    margin-bottom: 5px;
+
+}
+.comment{
+    margin-bottom: 15px;
+}
+.formselect{
+    width: 100%; 
+    padding: 10px; 
+    border-radius: 15px; 
+    border: 1px solid #ddd; 
+    background-color: #fffaf0;
+}
+.smalltext{
+    width: 100%; height: 100px; 
+    padding: 12px; 
+    border-radius: 15px; 
+    border: 1px solid #ddd; 
+    background-color: #fffaf0; 
+    box-sizing: border-box; 
+    font-family: sans-serif;
+}
+html { 
+    scroll-behavior: smooth; 
+}
+
+/* Styles pour la section Menu */
+.menucontainer {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: flex-start;
+}
+
+.menulist {
+    list-style: none; 
+    padding: 0; 
+    margin: 0; 
+    width: 45%;
+}
+
+.menuitem {
+    margin-bottom: 15px;
+}
+
+.menuitemcentered {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Transformation des liens en boutons/liens propres */
+.menulinkbutton {
+    text-align: center; 
+    display: block; 
+    text-decoration: none; 
+    font-size: 16px; 
+    padding: 10px;
+}
+/* Titres de sections de formulaires */
+.profilesectiontitle {
+    font-size: 30px;
+}
+
+/* Message fidélité */
+.loyaltymessage {
+    color: var(--rose);
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Éléments de commande */
+.orderitem {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px dashed var(--orange);
+}
+
+.orderitem:last-child {
+    border-bottom: none; /* Enlève la ligne pour le dernier élément */
+}
+
+.statusdelivered {
+    color: green;
+}
+
+/* Bouton réduit pour les listes */
+.btnsmall {
+    font-size: 14px;
+    padding: 10px;
+}
+/* ----------------------------------------------------------------------------
+    2. NAVIGATION ET FOOTER 
+    --------------------------------------------------------------------------------*/
+   
        footer {
     background-color: var(--orange);
     text-align: center;
     padding: 20px;
-    margin-top: 50px;
-    font-family: 'Quicksand', sans-serif;
+    margin-top: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.footer-2 p {
+.footer2 p {
     margin: 5px 0;
     color: var(--text-color);
 }
 
-.insta-pote strong {
-    color: var(--rose);
+.instapote strong {
+    color: var(--rose);/*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 }
 
-.mini-barre {
+.minibar {
     width: 50px;
     border: 1px solid var(--rose);
     margin: 10px auto;
     opacity: 0.5;
 }
-.logo-footer {
+.logofooter {
     
     height: 120px;
     
@@ -93,7 +366,7 @@
     
 
     /*header*/
-    .header-sun {
+    .headersun {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -101,16 +374,23 @@
     background-color: var(--bg-color);
     
     }
-    .titre-group {
+    .titlegroup {
     flex-grow: 1;
     text-align: center;
     
     }
-    
-    .titre-rose {
+    .menutitle{
+          font-size: 30px; 
+          margin-bottom: 20px; 
+          text-align: center;
+          color: var(--rose);
+        font-family: 'Pacifico', cursive;
+    }
+    .titlepink {
+      
     color: var(--rose);
     font-family: 'Pacifico', cursive;
-    font-size: 50px;
+    font-size: 30px;
     margin: 0;
     }
     
@@ -123,21 +403,21 @@
     font-weight: normal;
     
     }
-    .logo-header {
+    .logoheader {
     height: 150px;
     width: auto;
     mix-blend-mode: multiply;
     filter: contrast(1.2);
     vertical-align: middle;
     }
-
+ 
     /*recherche */
-    .zone-recherche {
+    .zoneresearch {
     text-align: center;
     padding: 15px 0;
     }
     
-    .zone-recherche input {
+    .zoneresearch input {
     width: 250px;
     padding: 8px 15px;
     border: 2px solid var(--rose); 
@@ -145,7 +425,7 @@
     font-size: 14px;
     }
     
-    .zone-recherche button {
+    .zoneresearch button {
     background-color: var(--rose);
     color: white;
     border: none;
@@ -156,8 +436,9 @@
     }
 
 
-    .texte-presentation {
-    font-family: 'Quicksand', sans-serif; 
+    .textpresentation {
+     text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif; 
     font-size: 19px;
     line-height: 1.7;
     color: var(--text-color);
@@ -166,11 +447,12 @@
     font-weight: 400;
 }
 
-.texte-presentation strong {
+.textpresentation strong {
     color: var(--rose);
     font-weight: 600;
 }
-    .notre-histoire {
+    .ourstory {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     background-color: #fff;
     padding: 40px 20px;
     margin: 30px 10%;
@@ -178,12 +460,12 @@
     border: 1px solid var(--jaune);
     text-align: center;
     }
-    .histoire-container {
+    .storycontainer {
     max-width: 700px; 
     margin: 0 auto;   
 }
 
-.logo-signature{
+.logosignature{
     height: 40px;
     width: auto;
     mix-blend-mode: multiply;
@@ -192,7 +474,8 @@
     }
     
     
-    .section-presentation {
+    .sectionpresentation {
+        
     padding: 40px 10%;
     display: flex;
     justify-content: center;
@@ -200,7 +483,8 @@
     }
     
     
-    .contenu-flex {
+    .contentflex {
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     display: flex;
     align-items: center;
     gap: 40px;
@@ -211,10 +495,10 @@
     max-width: 800px;
     
     }
-    .inverse .contenu-flex { flex-direction: row-reverse; }
+    .reverse .contentflex { flex-direction: row-reverse; }
     
     
-    .img-zoom {
+    .imgzoom {
     width: 250px;
     height: 180px;
     object-fit: cover;
@@ -225,7 +509,8 @@
     
     
     
-    .best-seller-unique { text-align: center; padding: 50px 0; margin-bottom: 50px ;}
+    .bestsellerunique { 
+        text-align: center; padding: 50px 0; margin-bottom: 50px ;}
     
     .product.star {
     
@@ -240,7 +525,7 @@
     
     }
     
-    .badge-star {
+    .badgestar {
     position: absolute;
     top: -15px;
     background: var(--rose);
@@ -267,13 +552,14 @@
 4.PAGE D'INSCRPTION / CONNEXION 
 ----------------------------------------------------------------------------------*/
    
-.form-section {
+.formsection {
     padding: 40px 0;
     display: flex;
     justify-content: center;
 }
 
-.form-container {
+.formcontainer {
+    
     background-color: white;
     padding: 30px;
     border-radius: 30px;
@@ -284,12 +570,12 @@
     border: 2px solid var(--rose);
 }
 
-.form-group {
+.formgroup {
     display: flex;
     gap: 10px;
 }
 
-.form-container input, .form-container textarea {
+.formcontainer input, .formcontainer textarea {
     width: 100%;
     padding: 12px;
     margin: 10px 0;
@@ -299,20 +585,20 @@
     box-sizing: border-box; 
 }
 
-.form-container h3 {
+.formcontainer h3 {
     text-align: left;
     color: var(--bleu);
     font-size: 16px;
     margin-top: 20px;
 }
 
-.separateur {
+.separator {
     border: 0;
     border-top: 2px dashed var(--orange);
     margin: 20px 0;
 }
 
-.btn-inscription {
+.btninscription {
     background-color: var(--rose);
     color: white;
     font-size: 18px;
@@ -326,42 +612,42 @@
     margin-top: 10px;
 }
 
-.btn-inscription:hover {
+.btninscription:hover {
     background-color: #FE48A5;
     transform: translateY(-2px);
 }
 
-.lien-connexion {
+.linkconnection {
     margin-top: 15px;
     font-size: 14px;
 }
 
 
 
-.input-wrapper {
+.inputwrapper {
     text-align: left;
     margin-bottom: 15px;
 }
 
-.input-wrapper label {
+.inputwrapper label {
     font-weight: bold;
     color: var(--text-color);
     font-size: 14px;
     margin-left: 5px;
 }
 
-.mdp-oublie {
+.passwordoversight {
     text-align: right;
     font-size: 12px;
     margin-bottom: 20px;
 }
 
-.mdp-oublie a {
+.passwordoversight a {
     color: var(--text-color);
     text-decoration: underline;
 }
 
-.mdp-oublie a:hover {
+.passwordoversight a:hover {
     color: var(--rose);
 }
 
@@ -372,29 +658,29 @@
 /* ------------------------------------------------------------------------------
 5. PAGE ADMIN 
 --------------------------------------------------------------------------------- */
-.admin-container {
+.admincontainer {
     padding: 40px 5%;
 }
 
-.admin-card {
+.admincard {
     background: white;
     padding: 30px;
     border-radius: 20px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-.titre-bleu {
+.titleblue {
     color: var(--bleu);
     font-family: 'Pacifico', cursive;
 }
 
-.admin-filters {
+.adminfilters {
     margin-bottom: 20px;
     display: flex;
     gap: 10px;
 }
 
-.btn-filter {
+.btnfilter {
     background: #f0f0f0;
     border: none;
     padding: 8px 15px;
@@ -402,26 +688,26 @@
     cursor: pointer;
 }
 
-.btn-filter.active {
+.btnfilter.active {
     background: var(--rose);
     color: white;
 }
 
 /* Tableau */
-.user-table {
+.usertable {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
 }
 
-.user-table th {
+.usertable th {
     text-align: left;
     background-color: var(--orange);
     padding: 12px;
     color: var(--text-color);
 }
 
-.user-table td {
+.usertable td {
     padding: 12px;
     border-bottom: 1px solid #eee;
 }
@@ -434,13 +720,13 @@
     font-size: 12px;
 }
 
-.badge.commande {
+.badge.order {
     background: var(--bleu);
     color: white;
 }
 
 
-.btn-view {
+.btnview {
     text-decoration: none;
     color: var(--rose);
     font-weight: bold;
@@ -450,21 +736,21 @@
     transition: 0.3s;
 }
 
-.btn-view:hover {
+.btnview:hover {
     background: var(--rose);
     color: white;
 }
 /* ---------------------------------------------------------------------------------
  6.PAGES COMMANDES
  -------------------------------------------------------------------------------- */
-.dashboard-commandes {
+.dashboardorders{
     display: flex;
     gap: 30px;
     padding: 30px 5%;
     justify-content: center;
 }
 
-.colonne-commande {
+.columnorders {
     flex: 1;
     max-width: 450px;
     background: #fdfdfd;
@@ -473,10 +759,10 @@
     border: 2px solid #eee;
 }
 
-.titre-prep { color: #FF4D4D; text-align: center; } 
-.titre-liv { color: #4D94FF; text-align: center; }  
+.titleprep { color: #FF4D4D; text-align: center; } 
+.titledel { color: #4D94FF; text-align: center; }  
 
-.commande-card {
+.ordercard {
     background: white;
     border: 1px solid #ddd;
     border-radius: 15px;
@@ -485,7 +771,7 @@
     box-shadow: 4px 4px 0px #eee;
 }
 
-.commande-header {
+.orderheader {
     display: flex;
     justify-content: space-between;
     border-bottom: 1px dashed #ccc;
@@ -493,9 +779,9 @@
     margin-bottom: 10px;
 }
 
-.id-commande { font-weight: bold; color: var(--rose); }
+.idorder { font-weight: bold; color: var(--rose); }
 
-.btn-action-prep {
+.btnactionprep {
     width: 100%;
     background-color: var(--jaune);
     border: none;
@@ -507,12 +793,12 @@
     transition: 0.2s;
 }
 
-.btn-action-prep:hover {
+.btnactionprep:hover {
     background-color: var(--rose);
     color: white;
 }
 
-.badge-livraison {
+.badgedelivery{
     display: block;
     text-align: center;
     font-size: 12px;
@@ -523,7 +809,7 @@
 
 
 @media (max-width: 800px) {
-    .dashboard-commandes {
+    .dashboardorders {
         flex-direction: column;
         align-items: center;
     }
@@ -532,12 +818,12 @@
 /*-------------------------------------------------------------------------------------
 7. PAGE DE LIVRAISON 
 -----*---------------------------------------------------------------------------------*/
-.body-livreur {
+.bodydeliveryperson {
     background-color: #f4f4f4;
     font-family: 'Segoe UI', sans-serif;
 }
 
-.header-livreur {
+.headerdeliveryperson {
     background-color: var(--rose);
     color: white;
     padding: 15px;
@@ -546,26 +832,26 @@
     gap: 20px;
 }
 
-.header-livreur h2 { margin: 0; font-size: 18px; }
+.headerdeliveryperson h2 { margin: 0; font-size: 18px; }
 
-.back-link { color: white; text-decoration: none; font-size: 14px; }
+.backlink { color: white; text-decoration: none; font-size: 14px; padding:1.20%}
 
-.container-mobile {
+.containermobile {
     padding: 15px;
     max-width: 500px; /* On simule la largeur d'un téléphone sur PC */
     margin: 0 auto;
 }
 
-.carte-livraison {
+.carddelivery {
     background: white;
     border-radius: 15px;
     padding: 20px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-.nom-client { font-size: 24px; margin-bottom: 10px; color: var(--text-color); }
+.nameclient { font-size: 24px; margin-bottom: 10px; color: var(--text-color); }
 
-.btn-tel {
+.btntel {
     display: inline-block;
     background-color: var(--bleu);
     color: white;
@@ -576,18 +862,18 @@
     font-size: 14px;
 }
 
-.detail-bloc { margin-top: 25px; }
+.detailbloc { margin-top: 25px; }
 
-.detail-bloc h3 {
+.detailbloc h3 {
     font-size: 14px;
     color: #888;
     text-transform: uppercase;
     margin-bottom: 8px;
 }
 
-.adresse-texte { font-size: 18px; font-weight: bold; margin-bottom: 10px; }
+.adresstext { font-size: 18px; font-weight: bold; margin-bottom: 10px; }
 
-.btn-maps {
+.btnmaps {
     display: block;
     text-align: center;
     background-color: #4285F4; /* Bleu Google Maps */
@@ -598,7 +884,7 @@
     font-weight: bold;
 }
 
-.grille-acces {
+.grilleaccess {
     display: flex;
     gap: 20px;
     background: #fffaf0;
@@ -606,14 +892,14 @@
     border-radius: 10px;
 }
 
-.comm-livreur {
+.commdeliveryperson {
     background: #fdf2f8;
     padding: 10px;
     border-left: 4px solid var(--rose);
     font-style: italic;
 }
 
-.btn-valider-livraison {
+.btnvalidatedelivery {
     width: 100%;
     background-color: #28a745; 
     color: white;
@@ -625,7 +911,23 @@
     margin-top: 30px;
     cursor: pointer;
 }
-
+.removebb {
+    mix-blend-mode: multiply;
+    filter: contrast(1.1);
+    height: 80px;
+    vertical-align: middle;
+}
+.editicon {
+            cursor: pointer;
+            margin-left: 10px;
+            font-size: 14px;
+            color: var(--rose);
+            transition: 0.3s;
+}
+.editicon:hover {
+    color: var(--rose-dark);
+    transform: scale(1.2);
+}
 
 
 
