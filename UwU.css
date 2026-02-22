@@ -1,9 +1,0 @@
-.texte-presentation {
-    font-family: 'Quicksand', sans-serif; /* La nouvelle police toute ronde */
-    font-size: 19px;
-    line-height: 1.7;
-    color: var(--text-color);
-    text-align: left; /* Plus moderne que justify pour cette police */
-    margin-bottom: 20px;
-    font-weight: 400; /* Poids normal */
-}
