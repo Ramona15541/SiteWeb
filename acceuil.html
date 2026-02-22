@@ -3,38 +3,39 @@
 <head>
     <meta charset="utf-8">
     <title>SunSip - Accueil</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="zzzstyle.css">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header class="header-sun">
-    <div class="titre-group">
-        <h1 class="titre-rose">SunSip</h1>
+<header class="headersun">
+    <div class="titlegroup">
+        <h1 class="titlepink">SunSip</h1>
         <p class="slogan">"Frais et délicieux : Le smoothie qui défie le soleil !"</p>
     </div>
-    <img src="logo.jpeg" alt="Logo SunSip" class="logo-header">
+    <img src="logo.jpeg" alt="Logo SunSip" class="removebg">
 </header>
 
-<nav class="nav">
+<nav class="navsimple">
     <a href="acceuil.html">Accueil</a>
-    <a href="produits.html">Carte</a>
+    <a href="presentation.html">Carte</a>
     <a href="inscription.html">S'inscrire</a>
-    <a href="pagedeconnexion.html">Connexion</a>
+    <a href="connexion.html">Connexion</a>
     <a href="profil.html">Mon Profil</a>
     <a href="livraison.html">Livreur</a>
 </nav>
+<section>
+    <h2 class="title">Recherche de desserts</h2>
+    <div class="zone">
+        <input type="text" placeholder="Trouver un smoothie...">
+        <button>🔍</button>
+    </div>
+</section>
 
-<div class="zone-recherche">
-    <input type="text" placeholder="Trouver un smoothie...">
-    <button>🔍</button>
-</div>
-
-<section class="notre-histoire">
-   <div class=" histoire-container">
-        <h2 class="titre-rose">L'aventure SunSip ! </h2>
-        <div class="texte-presentation">
+<section class="ourstory">
+    <div class="storycontainer">
+        <h2 class="titlepink">L'aventure SunSip ! </h2>
+        <div class="textpresentation">
             <p>
                 Tout a commencé avec trois copines, une passion démesurée pour les fruits (limite obsessionnelle, on vous l'avoue) 
                 et un mixeur qui a beaucoup trop souffert. Notre truc à nous ? 
@@ -49,55 +50,58 @@
                 Grâce à nos recettes uniques et un savoir-faire particulier, nos smoothies sont prêts à défier le soleil pour vous accompagner tout l'été.
             </p>
         </div>
-        <span class="signature" style="font-family: 'Pacifico'; color: var(--rose);">L'équipe SunSip </span>
-         <img src="logo.jpeg" alt="Logo SunSip" class="logo-signature">
+        <span class="signature">L'équipe SunSip </span>
+         <img src="logo.jpeg" alt="Logo SunSip" class="removebb">
     </div>
 </section>
 
-<section class="section-presentation">
-    <div class="contenu-flex">
-        <img src="frutmarché.jpg" alt="Fruits du marché" class="img-zoom">
-        <div class="texte-presentation">
-            <h2 class="titre-rose" style="font-size: 30px;">Des fruits qualitatifs ! </h2>
+<section class="sectionpresentation">
+    <div class="contentflex">
+        <img src="frutmarche.jpg" alt="Fruits du marché" class="imgzoom">
+        <div class="textpresentation">
+            <h2 class="titlepink">Des fruits qualitatifs ! </h2>
             <p>Nos fruits sont cueillis avec <strong>amour</strong> sur les meilleurs étals pour vous garantir un goût authentique et une explosion de saveurs en bouche.</p>
         </div>
     </div>
 </section>
 
 <section class="section-presentation inverse">
-    <div class="contenu-flex">
-        <img src="fruitaufrais.jpg" alt="Fruits au frais" class="img-zoom">
-        <div class="texte-presentation">
-            <h2 class="titre-rose" style="font-size: 30px;">Toujours au frais ! </h2>
+    <div class="contentflex">
+        <img src="fruitaufrais.jpg" alt="Fruits au frais" class="imgzoom">
+        <div class="textpresentation">
+            <h2 class="titlepink">Toujours au frais ! </h2>
             <p>Des fruits au frais rien que pour votre palais ! Nos préparations restent <strong>glacées</strong> jusqu'à la dégustation, même quand le thermomètre s'affole.</p>
         </div>
     </div>
 </section>
 
-<section class="best-seller-unique">
-    <h2 class="titre-rose"> Notre Best-Seller </h2>
+<section class="bestsellerunique">
+    <h2 class="titlepink"> Notre Best-Seller </h2>
     <div class="product star">
-        <div class="badge-star">LE DRAGON CRUSH </div>
-        <img src="image4.jpg" alt="Dragon Crush">
+        <div class="badgestar">LE DRAGON CRUSH </div>
+        <img src="ssexo2.png" alt="Dragon Crush">
         <h3>Dragon Crush</h3>
-        <p class="texte-presentation" style="font-size: 16px; text-align: center;">L'explosion exotique du fruit du dragon et de la fraise.</p>
+        <p class="textpresentation">L'explosion exotique du fruit du dragon et de la fraise.</p>
         <span class="prix">7.50€</span>
         <br><br>
-        <button class="btn-inscription">Commander maintenant</button>
+        <a href="presentation.html">
+        <button class="btninscription">Commander maintenant</button>
+        </a>
     </div>
 </section>
 
 <footer>
-    <div class="footer-2">
-        <img src="logo.jpeg" alt="Logo SunSip" class="logo-footer">
+    <div class="footersimple">
         <p>📍 12 rue du Smoothie, Sunsippy | mail: hello@sunsip.fr</p>
-        <p class="insta-pote">Suivez-nous sur Insta : <strong>@SunSip_Fresh</strong> </p>
-        <hr class="mini-barre">
-        <p>SunSip &copy; 2026 - Fait avec amour ! </p>
+        <p class="instapote">Suivez-nous sur Insta : <strong>@SunSip_Fresh</strong> </p>
+        <hr class="minibar">
+        <p>SunSip &copy; 2026 - Fait avec amour 🍓</p>
     </div>
 </footer>
 </body>
 </html>
 
+</body>
+</html>
 </body>
 </html>
