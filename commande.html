@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Gestion des Commandes - SunSip</title>
+    <link rel="stylesheet" href="zzzstyle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="headersun">
+    <h1 class="titlepink">Commandes du jour </h1>
+</header>
+
+<nav class="navsimple">
+    <a href="acceuil.html">Accueil</a>
+    <a href="admin.html">Utilisateurs</a>
+    <a href="commande.html">Commandes</a>
+</nav>
+
+<main class="dashboardorders">
+    <section class="columnorderprep">
+        <h2 class="titleprep"> À préparer</h2>
+        
+        <div class="ordercard">
+            <div class="orderheader">
+                <span class="idorder">#452</span>
+                <span class="hour">14:15</span>
+            </div>
+            <p class="details"><strong>1x Dragon Crush</strong><br>1x Salade de fruits (Custom)</p>
+            <p class="client">Client : Julie Sun</p>
+            <button class="btnactionprep">Passer en livraison </button>
+        </div>
+
+        <div class="ordercard">
+            <div class="orderheader">
+                <span class="idorder">#453</span>
+                <span class="hour">14:20</span>
+            </div>
+            <p class="details"><strong>2x Sunshine Mix</strong></p>
+            <p class="client">Client : Marc Frais</p>
+            <button class="btnactionprep">Passer en livraison </button>
+        </div>
+    </section>
+
+    <section class="columnorderdel">
+        <h2 class="titledel"> En livraison</h2>
+        
+        <div class="ordercard ontheway">
+            <div class="orderheader">
+                <span class="idorder">#450</span>
+                <span class="statut">Parti à 13:50</span>
+            </div>
+            <p class="details"><strong>1x Coco-Berry</strong></p>
+            <p class="client">Livreur : Ahmed (Velo)</p>
+            <span class="badgedelivery">En attente de confirmation...</span>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>Session Restaurateur : SunSip </p>
+</footer>
+
+</body>
+</html>
