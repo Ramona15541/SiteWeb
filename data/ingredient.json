@@ -1,0 +1,88 @@
+[
+  {
+    "id": 101,
+    "nom": "Mangue ",
+    "prix": 1.50,
+    "categorie": "Fruits",
+    "allergenes": ["aucun"]
+  },
+  {
+    "id": 102,
+    "nom": "Ananas ",
+    "prix": 1.00,
+    "categorie": "Fruits",
+    "allergenes": ["aucun"]
+  },
+  {
+    "id": 103,
+    "nom": "Fruit du dragon",
+    "prix": 1.80,
+    "categorie": "Fruits",
+    "allergenes": ["aucun"]
+  },
+  {
+    "id": 104,
+    "nom": "Litchi",
+    "prix": 1.20,
+    "categorie": "Fruits",
+    "allergenes": ["aucun"]
+  },
+  {
+    "id": 105,
+    "nom": "Banane ",
+    "prix": 1.50,
+    "categorie": "Fruits",
+    "allergenes": ["aucun"]
+  },
+  {
+    "id": 106,
+    "nom": "Fraises ",
+    "prix": 1.50,
+    "categorie": "Fruits",
+    "allergenes": ["aucun"]
+  },
+  {
+    "id": 107,
+    "nom": "Pastèque ",
+    "prix": 1.50,
+    "categorie": "Fruits",
+    "allergenes": ["aucun"]
+  },
+    {
+    "id": 108,
+    "nom": "Myrtille ",
+    "prix": 1.50,
+    "categorie": "Fruits",
+    "allergenes": ["aucun"]
+  },
+  {
+    "id": 109,
+    "nom": "Noix de coco râpée",
+    "prix": 0.50,
+    "categorie": "Topping",
+    "allergenes": ["fruits à coque"]
+  },
+  {
+    "id": 110,
+    "nom": "Cacahuètes pilées",
+    "prix": 0.50,
+    "categorie": "Topping",
+    "allergenes": ["arachides"]
+  },
+  {
+    "id": 111,
+    "nom": "Sirop de Citronnelle",
+    "prix": 0.50,
+    "categorie": "Base",
+    "allergenes": ["aucun"]
+  },
+  {
+    "id": 112,
+    "nom": "Jus de Citron Vert",
+    "prix": 0.50,
+    "categorie": "Base",
+    "allergenes": ["aucun"]
+  }
+]
+
+
