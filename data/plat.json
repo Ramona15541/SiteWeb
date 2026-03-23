@@ -1,0 +1,123 @@
+[
+  {
+    "id": 1,
+    "nom": "LeGrinch (Phuket Green)",
+    "description": "Orange, Kiwi, Citron vert",
+    "prix": 5.90,
+    "categorie": "Smoothie",
+    "allergenes": ["Aucun"]
+  },
+  {
+    "id": 2,
+    "nom": "Blossom (Siam Flower)",
+    "description": "Framboise, Pamplemousse, Pomme verte",
+    "prix": 5.90,
+    "categorie": "Smoothie",
+    "allergenes": ["Aucun"]
+  },
+  {
+    "id": 3,
+    "nom": "TriniKwan ",
+    "description": "Ananas, Passion, Gingembre frais",
+    "prix": 5.90,
+    "categorie": "Smoothie",
+    "allergenes": ["Aucun"]
+  },
+  {
+    "id": 4,
+    "nom": "Strawberry Shortcake",
+    "description": "Banane, Fraise, Lait d'amande",
+    "prix": 5.90,
+    "categorie": "Smoothie",
+    "allergenes": ["fruits à coque", "soja", "gluten"]
+  },
+  {
+    "id": 5,
+    "nom": "Precious Pear",
+    "description": "Poire, Datte, Vanille, Lait",
+    "prix": 5.90,
+    "categorie": "Smoothie",
+    "allergenes": ["Lactose"]
+  },
+  {
+    "id": 6,
+    "nom": "Lady BlueMoon",
+    "description": "Myrtille, Banane, Lait d'Avoine",
+    "prix": 5.90,
+    "categorie": "Smoothie",
+    "allergenes": ["soja", "Avoine"]
+  },
+  {
+    "id": 7,
+    "nom": "Sunshine Mix (Andaman Sun)",
+    "description": "Ananas, Papaye, Jus de Citron vert",
+    "prix": 5.90,
+    "categorie": "Smoothie",
+    "allergenes": ["Aucun"]
+  },
+  {
+    "id": 8,
+    "nom": "Dragon Crush ",
+    "description": "Goyave, Fruit du dragon, Menthe",
+    "prix": 5.90,
+    "categorie": "Smoothie",
+    "allergenes": ["Aucun"]
+  },
+  {
+    "id": 9,
+    "nom": "CocoBerry ",
+    "description": "Mangue, Coco, Passion",
+    "prix": 5.90,
+    "categorie": "Smoothie",
+    "allergenes": ["fruits à coque", "gluten", "Lactose"]
+  } , 
+
+{
+    "id": 10,
+    "nom": "T-Rotee",
+    "description" : "Feuilleté, Concentré sucré, Rondelles de Banane",
+    "prix": 6.50,
+    "categorie": "Dessert",
+    "allergenes": ["gluten", "lactose"]
+  } , 
+{
+    "id": 11,
+    "nom": "Choco T-Rotee",
+    "description" : "Feuilleté, Chocolat, Rondelles de Banane",
+    "prix": 7.00,
+    "categorie": "Dessert",
+    "allergenes": ["gluten", "lactose"]
+  } , 
+{
+    "id": 12,
+    "nom": "Mango Sticky Rice",
+    "description" : "Riz gluant, Tranches de mangue, Lait de Coco",
+    "prix": 7.00,
+    "categorie": "Dessert",
+    "allergenes": ["gluten", "lactose"]
+  } , 
+{
+    "id": 13,
+    "nom": "Luk chup",
+    "description" : "Desserts thaïlandais au haricot mungo en forme de fruit",
+    "prix": 6.00,
+    "categorie": "Dessert",
+    "allergenes": ["Gélatine"]
+  } , 
+{
+    "id": 14,
+    "nom": "Thai Jello",
+    "description" : "Un dessert traditionnel thaïlandais à la texture gélatineuse et fondante.",
+    "prix": 4.50,
+    "categorie": "Dessert",
+    "allergenes": ["Aucun"]
+  } , 
+{
+    "id": 15,
+    "nom": "Bua Loy",
+    "description" : "Perles de farine de riz gluant, servies dans un lait de coco chaud.",
+    "prix": 5.50,
+    "categorie": "Dessert",
+    "allergenes": ["Aucun"]
+  }   
+]

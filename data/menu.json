@@ -1,0 +1,23 @@
+[
+  {
+    "id_menu": 1,
+    "nom": "Menu Sawadeeka",
+    "description": "Pour voir la vie en rose avec le mango sticky rice et le Dragon Crush",
+    "prix": 11.00,
+    "contenu_ids": [8, 12]
+  },
+  {
+    "id_menu": 2,
+    "nom": "Menu Sonkran",
+    "description": " Savourez une baignade à la pleine lune avec le Lady BlueMoon et le Choco T-Rotee ",
+    "prix": 12.50,
+    "contenu_ids": [6, 11]
+  },
+  {
+    "id_menu": 3,
+    "nom": "Menu Hooligan",
+    "description": "Devoiler votre singularité avec le Luk chup, Thai Jello et TriniKwan ",
+    "prix": 12.00,
+    "contenu_ids": [13, 14, 3]
+  }
+]

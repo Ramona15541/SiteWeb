@@ -1,0 +1,83 @@
+[
+  {
+    "id_user": 1,
+    "login": "Fatustar_proprio",
+    "password": "admin_Fatu_password",
+    "role": "admin",
+    "nom": "Star",
+    "prenom": "Fatu",
+    "email": "Fatustar24@sunsip.fr"
+  },
+   {
+    "id_user": 2,
+    "login": "MariaStar_proprio",
+    "password": "admin_Maria_password",
+    "role": "admin",
+    "nom": "Star",
+    "prenom": "Maria",
+    "email": "MariaStar23@sunsip.fr"
+  },
+   {
+    "id_user": 3,
+    "login": "Aminastar_proprio",
+    "password": "admin_Amina_password",
+    "role": "admin",
+    "nom": "Star",
+    "prenom": "Amina",
+    "email": "Aminastar26@sunsip.fr"
+  },
+  {
+    "id_user": 4,
+    "login": "Patrick_Starfish",
+    "password": "delivery_2026",
+    "role": "livreur",
+    "nom": "Flash",
+    "prenom": "Patrick",
+    "email": "Patrick.livraison@sunsip.fr"
+  },
+  {
+    "id_user": 5,
+    "login": "Alex_LeChat",
+    "password": "User123",
+    "role": "client",
+    "nom": "Lechat",
+    "prenom": "Alex",
+    "email": "AlexLechat@gmail.com"
+  },
+  {
+    "id_user": 6,
+    "login": "kim_Taekook",
+    "password": "9795vk",
+    "role": "client",
+    "nom": "kim",
+    "prenom": "Taekook",
+    "email": "Taekoook.kim@orange.fr"
+  },
+  {
+    "id_user": 7,
+    "login": "J_Hope",
+    "password": "user789",
+    "role": "client",
+    "nom": "jeon",
+    "prenom": "Hope",
+    "email": "Hope.j@gmail.com"
+  },
+  {
+    "id_user": 8,
+    "login": "hooligan_fan",
+    "password": "user321",
+    "role": "client",
+    "nom": "Petit",
+    "prenom": "Chloé",
+    "email": "chloe.p@outlook.fr"
+  },
+  {
+    "id_user": 9,
+    "login": "Angelo_Ladebrouille",
+    "password": "user999",
+    "role": "client",
+    "nom": "Ladebrouille",
+    "prenom": "Angelo",
+    "email": "Angelo.ldbr@gmail.com"
+  }
+]
