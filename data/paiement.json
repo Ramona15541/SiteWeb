@@ -1,0 +1,72 @@
+[
+  {
+    "id_paiement": 1,
+    "id_commande": 1,
+    "id_user": 5,
+    "montant": 18.80,
+    "methode": "CB",
+    "details_bancaires": {
+      "nom_carte": "Alex LeChat",
+      "numero_masque": "**** **** **** 4242",
+      "banque": "CYBank"
+    },
+    "statut_transaction": "succès",
+    "date_transaction": "23/01/2024 10:17"
+  },
+  {
+    "id_paiement": 2,
+    "id_commande": 2,
+    "id_user": 6,
+    "montant": 23.00,
+    "methode": "CB",
+    "details_bancaires": {
+      "nom_carte": "Taekook Kim",
+      "numero_masque": "**** **** **** 9795",
+      "banque": "CYBank"
+    },
+    "statut_transaction": "succès",
+    "date_transaction": "04/06/2022 17:52"
+  },
+  {
+    "id_paiement": 3,
+    "id_commande": 3,
+    "id_user": 7,
+    "montant": 21.80,
+    "methode": "CB",
+    "details_bancaires": {
+      "nom_carte": "Hope Jeon",
+      "numero_masque": "**** **** **** 2013",
+      "banque": "CYBank"
+    },
+    "statut_transaction": "succès",
+    "date_transaction": "11/10/2023 16:10"
+  },
+  {
+    "id_paiement": 4,
+    "id_commande": 4,
+    "id_user": 8,
+    "montant": 11.90,
+    "methode": "CB",
+    "details_bancaires": {
+      "nom_carte": "Chloé Petit",
+      "numero_masque": "**** **** **** 8888",
+      "banque": "CYBank"
+    },
+    "statut_transaction": "succès",
+    "date_transaction": "03/08/2025 14:55"
+  },
+ {
+    "id_paiement": 5,
+    "id_commande": 5,
+    "id_user": 9,
+    "montant": 11.00,
+    "methode": "CB",
+    "details_bancaires": {
+      "nom_carte": "Angelo Ladebrouille",
+      "numero_masque": "**** **** **** 0000",
+      "banque": "CYBank"
+    },
+    "statut_transaction": "échec",
+    "date_transaction": "16/03/2020 09:40"
+  }
+]
