@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>SunSip - Administration</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body class="adminbody">
@@ -12,10 +12,7 @@
     <h1 class="titlepink">Tableau de Bord Admin</h1>
 </header>
 
-<nav class="navsimple">
-    <a href="acceuil.html">Accueil</a>
-    <a href="admin.html">Utilisateurs</a>
-    <a href="commande.html">Commandes</a> </nav>
+<?php include('../views/header.php'); ?>
 
 <section class="admincontainer">
     <div class="admincard">
