@@ -1,0 +1,48 @@
+[
+    { 
+        "id_commande" : 1,
+        "id_user": 5,
+        "id_plats": [12, 14, 6],
+        "adresse / sur place" : "17 rue de la Poisse,10510, Bangkok",
+        "Statut du paiement" : "payé",
+        "Statut de la commande" : "livré",
+        "Date et heure" : "23/01/2024 à 10h15"
+    },
+      {
+        "id_commande" : 2,
+        "id_user": 6,
+        "id_menus": [1,3],
+        "adresse / sur place" : "sur palce",
+        "Statut du paiement" : "payé",
+        "Statut de la commande" : "confirmé",
+        "Date et heure" : "04/06/2022 à 17h50"
+    },
+      {
+        "id_commande" : 3,
+        "id_user": 7,
+        "id_plats": [3, 9, 14,15],
+        "adresse / sur place" : "11 rue des Cerises,10800, Bangkok",
+        "Statut du paiement" : "payé",
+        "Statut de la commande" : "livré",
+        "Date et heure" : "11/10/2023 à 16h08"
+    },
+      {
+        "id_commande" : 4,
+        "id_user": 8,
+        "id_plats": [2,13],
+        "adresse / sur place" : "sur place",
+        "Statut du paiement" : "payé",
+        "Statut de la commande" : "en cours de préparation",
+        "Date et heure" : "03/08/2025 à 14h53"
+    },
+      {
+        "id_commande" : 5,
+        "id_user": 9,
+        "id_menus": 1,
+        "adresse / sur place" : "sur place",
+        "Statut du paiement" : "en attente de paiement",
+        "Statut de la commande" : "en préparation",
+        "Date et heure" : "16/03/2020 à 09h38"
+    }
+]
+
