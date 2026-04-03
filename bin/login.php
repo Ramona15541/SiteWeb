@@ -33,9 +33,11 @@ if ($utilisateur_trouve) {
 
         
         if ($utilisateur_trouve['role'] === 'admin') {
-            header('Location: ../views/admin_dashboard.php');
+            header('Location: ../views/admin.php');
         } elseif ($utilisateur_trouve['role'] === 'livreur') {
-            header('Location: ../views/tournee.php');
+            header('Location: ../views/livraison.php');
+        } elseif ($utilisateur_trouve['role'] === 'restaurateur') {
+            header('Location: ../views/commande.php');
         } else {
             header('Location: ../views/presentation.php?connexion=ok');
         }
