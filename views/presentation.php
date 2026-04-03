@@ -3,27 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>SunSip - Presentation</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body class="tablecloth">
 
-<header class="headersun">
-    <div class="titlegroup">
-        <h1 class="titlepink">SunSip</h1>
-        <p class="slogan">"Frais et délicieux : Le smoothie qui défie le soleil de Bangkok !"</p>
-    </div>
-    <img src="logo.jpeg" alt="Logo SunSip" class="removebg">
-</header>
 
-<nav class="navsimple">
-    <a href="acceuil.html">Accueil</a>
-    <a href="presentation.html">Carte</a>
-    <a href="inscription.html">S'inscrire</a>
-    <a href="connexion.html">Connexion</a>
-    <a href="profil.html">Mon profil</a>
-    <a href="notation.html">Notation</a>
-</nav>
+
+<?php include('../includes/header.php'); ?>
 
 <section>
     <h2 class="title">Recherche de desserts</h2>
