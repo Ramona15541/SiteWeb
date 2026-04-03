@@ -1,9 +1,14 @@
+<?php
+session_start();
+$prenom = isset($_SESSION['prenom']) ? $_SESSION['prenom'] : 'Invité';
+?>
 <!DOCTYPE html>
+...<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="utf-8">
     <title> SunSip - Commande</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -12,12 +17,7 @@
     <h1 class="titlepink">Commandes du jour </h1>
 </header>
 
-<nav class="navsimple">
-    <a href="acceuil.html">Accueil</a>
-    <a href="admin.html">Utilisateurs</a>
-    <a href="commande.html">Commandes</a>
-</nav>
-
+<?php include('../views/header.php'); ?>
 <main class="dashboardorders">
     <section class="columnorderprep">
         <h2 class="titleprep"> À préparer</h2>
