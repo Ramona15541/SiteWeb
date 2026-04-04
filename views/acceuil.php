@@ -1,3 +1,4 @@
+<?php include('../includes/header.php'); ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -8,7 +9,7 @@
 </head>
 <body>
 
-<?php include('../includes/header.php'); ?>
+
 
 <section>
     <h2 class="title">Recherche de desserts</h2>
@@ -44,7 +45,7 @@
 
 <section class="sectionpresentation">
     <div class="contentflex">
-        <img src="../images/frutmarché.jpg" alt="Fruits du marché" class="imgzoom">
+        <img src="../images/frutmarche.jpg" alt="Fruits du marché" class="imgzoom">
         <div class="textpresentation">
             <h2 class="titlepink">Des fruits qualitatifs !</h2>
             <p>Nos fruits sont cueillis avec <strong>amour</strong> sur les meilleurs étals 

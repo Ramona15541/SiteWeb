@@ -1,3 +1,4 @@
+<?php include('../includes/header.php'); ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -10,7 +11,7 @@
 
 
 
-<?php include('../includes/header.php'); ?>
+
 
 <section>
     <h2 class="title">Recherche de desserts</h2>

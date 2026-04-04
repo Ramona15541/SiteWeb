@@ -1,54 +1,40 @@
-
-//lecture les données du formulaire
 <?php
-// Lecture les données du formulaire
-$prenom = $_POST['prenom'];
-$nom = $_POST['nom'];
-$email = $_POST['email'];
-$telephone = $_POST['telephone'];
-$password = $_POST['password'];
-$adresse = $_POST['adresse'];
-$code_postal = $_POST['code_postal'];
-$ville = $_POST['ville'];
+// On démarre la session au cas où on en aurait besoin
+session_start();
 
-if (isset($_POST['etage'])) {
-    $etage = $_POST['etage'];
-} else {
-    $etage = '';
-}
+// 1. Récupération des données (On utilise ?? pour éviter les notices)
+$prenom = $_POST['prenom'] ?? '';
+$nom = $_POST['nom'] ?? '';
+$email = $_POST['email'] ?? '';
+$telephone = $_POST['telephone'] ?? '';
+$password = $_POST['password'] ?? '';
+$adresse = $_POST['adresse'] ?? '';
+$code_postal = $_POST['code_postal'] ?? '';
+$ville = $_POST['ville'] ?? '';
+$etage = $_POST['etage'] ?? '';
+$code_interphone = $_POST['code_interphone'] ?? '';
+$instructions = $_POST['instructions'] ?? '';
 
-if (isset($_POST['code_interphone'])) {
-    $code_interphone = $_POST['code_interphone'];
-} else {
-    $code_interphone = '';
-}
-
-if (isset($_POST['instructions'])) {
-    $instructions = $_POST['instructions'];
-} else {
-    $instructions = '';
-}
-// 2. On lit le fichier users.json
+// 2. Lecture du fichier
 $fichier = '../data/utilisateur.json';
-$contenu = file_get_contents($fichier);
-$users = json_decode($contenu, true);
+if (!file_exists($fichier)) {
+    file_put_contents($fichier, json_encode([])); // Crée le fichier s'il n'existe pas
+}
+$users = json_decode(file_get_contents($fichier), true) ?? [];
 
-// 3. On vérifie que l'email n'existe pas déjà
+// 3. Vérification email unique
 foreach ($users as $user) {
     if ($user['email'] === $email) {
-        // Email déjà utilisé → on redirige avec une erreur
         header('Location: ../views/inscription.php?erreur=email_existe');
         exit();
     }
 }
 
-// 4. On crée le nouvel utilisateur
-$nouvel_id = count($users) + 1;
-
+// 4. Création utilisateur
 $nouvel_user = [
-    "id_user" => $nouvel_id,
+    "id_user" => count($users) + 1,
     "login" => $prenom . "_" . $nom,
-    "password" => password_hash($password, PASSWORD_DEFAULT), // mot de passe hashé !
+    "password" => $password,
     "role" => "client",
     "nom" => $nom,
     "prenom" => $prenom,
@@ -63,13 +49,9 @@ $nouvel_user = [
     "date_inscription" => date('Y-m-d')
 ];
 
-// 5. On ajoute l'utilisateur à la liste
+// 5. Enregistrement
 $users[] = $nouvel_user;
-
-// 6. On réécrit le fichier JSON
 file_put_contents($fichier, json_encode($users, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
 
-// 7. On redirige vers la connexion
 header('Location: ../views/connexion.php?inscription=succes');
 exit();
-?>

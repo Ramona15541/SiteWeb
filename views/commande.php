@@ -1,9 +1,5 @@
-<?php
-session_start();
-$prenom = isset($_SESSION['prenom']) ? $_SESSION['prenom'] : 'Invité';
-?>
+<?php include('../includes/header.php'); ?>
 <!DOCTYPE html>
-...<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="utf-8">
@@ -17,7 +13,7 @@ $prenom = isset($_SESSION['prenom']) ? $_SESSION['prenom'] : 'Invité';
     <h1 class="titlepink">Commandes du jour </h1>
 </header>
 
-<?php include('../views/header.php'); ?>
+
 <main class="dashboardorders">
     <section class="columnorderprep">
         <h2 class="titleprep"> À préparer</h2>

@@ -1,3 +1,4 @@
+<?php include('../includes/header.php'); ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -8,7 +9,6 @@
 </head>
 <body>
 
-<?php include('../includes/header.php'); ?>
 
 <section class="formsection">
     <div class="formcontainer">
@@ -22,13 +22,13 @@
             <input type="tel" name="telephone" placeholder="Numéro de téléphone" required>
             <input type="password" name="password" placeholder="Mot de passe" required>
             <hr class="separator">
-            <h3>📍 Adresse de livraison</h3>
+            <h3>Adresse de livraison</h3>
             <input type="text" name="adresse" placeholder="Adresse complète (N°, rue...)" required>
             <div class="formgroup">
                 <input type="text" name="code_postal" placeholder="Code Postal" required>
                 <input type="text" name="ville" placeholder="Ville" required>
             </div>
-            <h3>🔑 Accès livreur</h3>
+            <h3>Accès livreur</h3>
             <div class="formgroup">
                 <input type="text" name="etage" placeholder="Étage">
                 <input type="text" name="code_interphone" placeholder="Code Interphone">

@@ -1,3 +1,15 @@
+<?php 
+
+include '../includes/header.php'; 
+
+if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+    header('Location: connexion.php');
+    exit();
+}
+
+$json = file_get_contents('../data/utilisateur.json');
+$utilisateurs = json_decode($json, true);
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -12,7 +24,7 @@
     <h1 class="titlepink">Tableau de Bord Admin</h1>
 </header>
 
-<?php include('../views/header.php'); ?>
+
 
 <section class="admincontainer">
     <div class="admincard">
@@ -25,36 +37,44 @@
         </div>
 
         <table class="usertable">
-            <thead>
-                <tr>
-                    <th>Nom / Prénom</th>
-                    <th>Email</th>
-                    <th>Statut</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Amina jolie</td>
-                    <td>amina@jolie.com</td>
-                    <td><span class="badge commande">A commandé</span></td>
-                    <td><a href="profil.html" class="btnview">Voir Profil</a></td>
-                </tr>
-                <tr>
-                    <td>Maria charmante</td>
-                    <td>maria@charmante.fr</td>
-                    <td><span class="badge">Nouveau</span></td>
-                    <td><a href="profil.html" class="btnview">Voir Profil</a></td>
-                </tr>
-                <tr>
-                    <td>Fatu bisous</td>
-                    <td>fatu@bisous.com</td>
-                    <td><span class="badge commande">A commandé</span></td>
-                    <td><a href="profil.html" class="btnview">Voir profil</a></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <thead>
+        <tr>
+            <th>Utilisateur</th>
+            <th>Email</th>
+            <th>Statut actuel</th>
+            <th>Remise</th>
+            <th>Actions de gestion</th> </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($utilisateurs as $user): ?>
+            <tr>
+                <td><strong><?php echo $user['nom'] . " " . $user['prenom']; ?></strong></td>
+                <td><?php echo $user['email']; ?></td>
+                
+                <td>
+                    <span class="badge <?php echo ($user['role'] === 'admin') ? 'admin-color' : 'user-color'; ?>">
+                        <?php echo $user['role']; ?>
+                    </span>
+                </td>
+
+                <td>0%</td> 
+
+                <td>
+                    <div class="admin-actions">
+                        <select name="change_status">
+                            <option value="">Modifier Statut...</option>
+                            <option value="vip">Passer VIP</option>
+                            <option value="premium">Passer Premium</option>
+                        </select>
+                        
+                        <button class="btn-block" title="Bloquer le compte">🚫</button>
+                        <a href="profil.php?id=<?php echo $user['id_user']; ?>" class="btnview">Voir Profil</a>
+                    </div>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
 </section>
 
 <footer>

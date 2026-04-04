@@ -1,3 +1,4 @@
+<?php include('../includes/header.php'); ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -8,7 +9,7 @@
 </head>
 <body>
 
-<?php include('../includes/header.php'); ?>
+
 
 <section class="formsection">
     <div class="formcontainer">

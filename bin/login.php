@@ -1,11 +1,25 @@
 <?php
-session_start(); 
+session_start();
 
-// 1. On récupère les infos du formulaire
-$email_saisi = $_POST['email'];
-$password_saisi = $_POST['password'];
+$email_saisi = "";
 
-// 2. On charge tes utilisateurs depuis le JSON
+
+if (isset($_POST['mail'])) {
+    $email_saisi = $_POST['mail'];
+}
+
+
+$login_saisi = "";
+if (isset($_POST['login'])) {
+    $login_saisi = $_POST['login'];
+}
+
+$password_saisi = "";
+if (isset($_POST['password'])) {
+    $password_saisi = $_POST['password'];
+}
+
+
 $fichier = '../data/utilisateur.json';
 $contenu = file_get_contents($fichier);
 $users = json_decode($contenu, true);
@@ -14,17 +28,23 @@ $utilisateur_trouve = null;
 
 
 foreach ($users as $user) {
-    if ($user['email'] === $email_saisi) {
+    
+    if (!empty($email_saisi) && $user['email'] === $email_saisi) {
+        $utilisateur_trouve = $user;
+        break; 
+    }
+
+    else if (!empty($login_saisi) && $user['login'] === $login_saisi) {
         $utilisateur_trouve = $user;
         break; 
     }
 }
 
 
+
 if ($utilisateur_trouve) {
-    
-    if (password_verify($password_saisi, $utilisateur_trouve['password']) || $password_saisi === $utilisateur_trouve['password']) {
-        
+   
+    if ($password_saisi === $utilisateur_trouve['password']){
        
         $_SESSION['user_id'] = $utilisateur_trouve['id_user'];
         $_SESSION['nom'] = $utilisateur_trouve['nom'];
@@ -39,6 +59,7 @@ if ($utilisateur_trouve) {
         } elseif ($utilisateur_trouve['role'] === 'restaurateur') {
             header('Location: ../views/commande.php');
         } else {
+
             header('Location: ../views/presentation.php?connexion=ok');
         }
         exit();

@@ -1,3 +1,4 @@
+<?php include('../includes/header.php'); ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -8,7 +9,7 @@
 </head>
 <body>
 
-<?php include('../includes/header.php'); ?>
+
 
 <section class="formsection">
     <div class="formcontainer">
@@ -17,8 +18,8 @@
         <?php if (isset($_GET['erreur'])): ?>
     <p style="color: red; text-align: center; font-weight: bold;">
         <?php 
-            if($_GET['erreur'] == 'password') echo "Mot de passe incorrect !";
-            if($_GET['erreur'] == 'introuvable') echo "Email inconnu...";
+            if($_GET['erreur'] == 'password') echo "oupsi, mot de passe incorrect..?";
+            if($_GET['erreur'] == 'introuvable') echo "oupsi, mauvais email..?";
         ?>
     </p>
 <?php endif; ?>
@@ -26,8 +27,13 @@
 
         <form action="../bin/login.php" method="POST">
             <div class="input-wrapper">
-                <label>Ton Email</label>
-                <input type="email" name="email" placeholder="soleil@exemple.com" required>
+                <div class="input-wrapper">
+                <label>Email</label>
+                <input type="text" name="mail" placeholder="fatimamimi@smoothie.com">
+    
+                <label>ou Pseudo</label>
+                <input type="text" name="login" placeholder="MonPseudo">
+</div>
             </div>
             <div class="inputwrapper">
                 <label>Ton Mot de passe</label>
