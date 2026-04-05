@@ -14,18 +14,17 @@ $total_general = 0;
 
 if (!empty($_SESSION['panier'])) {
     foreach ($_SESSION['panier'] as $cle => $quantite) {
-        
-        // On sépare le type (plat/menu) et l'ID
+
         $parts = explode('_', $cle);
         if (count($parts) < 2) continue; 
 
         list($type, $id) = $parts;
         
-        // On choisit la bonne source de données
+       
         $source = ($type === 'plat') ? $plats : $menus;
         $produit_trouve = null;
 
-        // On cherche le produit dans le JSON correspondant
+        
         if (!empty($source)) {
             foreach ($source as $item) {
                 $cle_id = ($type === 'plat') ? 'id' : 'id_menu';
