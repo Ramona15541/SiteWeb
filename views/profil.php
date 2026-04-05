@@ -1,5 +1,5 @@
 <?php 
-include('header.php'); 
+include('../includes/header.php'); 
 
 if (isset($_GET['id'])) {
     $id_a_afficher = $_GET['id'];
@@ -7,7 +7,7 @@ if (isset($_GET['id'])) {
     $id_a_afficher = $_SESSION['user_id'] ?? null;
 }
 
-$users_data = json_decode(file_get_contents('utilisateur.json'), true);
+$users_data = json_decode(file_get_contents('../data/utilisateur.json'), true);
 $currentUser = null;
 foreach ($users_data as $u) {
     if ($u['id_user'] == $id_a_afficher) {
@@ -16,7 +16,7 @@ foreach ($users_data as $u) {
     }
 }
 
-$orders_data = json_decode(file_get_contents('commandes.json'), true);
+$orders_data = json_decode(file_get_contents('../data/commandes.json'), true);
 $my_orders = [];
 if ($orders_data) {
     foreach ($orders_data as $o) {
@@ -31,8 +31,8 @@ if ($orders_data) {
 <html lang="fr">
 <head>
     <meta charset="utf-8">
-    <title>SunSip - Profil de <?php echo $currentUser['prenom']; ?></title>
-    <link rel="stylesheet" href="style.css">
+    <title>SunSip - profil de <?php echo $currentUser['prenom']; ?></title>
+    <link rel="stylesheet" href="../style.css">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -71,7 +71,7 @@ if ($orders_data) {
             <p>Vous n'avez pas encore passé de commande.</p>
         <?php else: ?>
             <?php 
-            // On inverse pour voir la plus récente en premier
+            
             $orders_reversed = array_reverse($my_orders); 
             foreach ($orders_reversed as $commande): 
             ?>
