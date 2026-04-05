@@ -1,10 +1,10 @@
 <?php 
 session_start();
-include('header.php'); 
+include('../includes/header.php'); 
 
 
 if (!isset($_SESSION['user_id'])) {
-    header('Location: login.php');
+    header('Location: ../bin/login.php');
     exit();
 }
 
@@ -18,7 +18,7 @@ $id_cmd = $_GET['id'] ?? null;
     <meta charset="UTF-8">
     <title>SunSip - Notation</title>
     
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body>
