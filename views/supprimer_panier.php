@@ -9,7 +9,7 @@ if (isset($_GET['cle'])) {
         if ($_SESSION['panier'][$cle] > 1) {
             $_SESSION['panier'][$cle]--;
         } else {
-            // Sinon on supprime la ligne
+            
             unset($_SESSION['panier'][$cle]);
         }
     }
