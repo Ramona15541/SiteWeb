@@ -126,62 +126,6 @@
         "date_inscription": "2026-03-20"
     },
     {
-        "id_user": 10,
-        "login": "Anonyme_test",
-        "password": "$2y$12$7EZrTwbU2p6PnTLY6i4PcugjjsO9TvLvqq48VC7rKbLhIzBSIP9zK",
-        "role": "client",
-        "nom": "Test",
-        "prenom": "User",
-        "email": "test@sunsip.fr",
-        "telephone": "0600000000",
-        "adresse": "1 rue test",
-        "code_postal": "00000",
-        "ville": "Bangkok",
-        "date_inscription": "2026-04-04"
-    },
-    {
-        "id_user": 11,
-        "login": "jalloh_fatumata",
-        "password": "$2y$12$5k.MhJJvsZdrXNZZ31VuLuqa45xlm3XRHnTwb7lg7.3qZPqIMkDKe",
-        "role": "client",
-        "nom": "fatumata",
-        "prenom": "jalloh",
-        "email": "wannjalloh@gmail.com",
-        "telephone": "0660341288",
-        "adresse": "30 rue sully",
-        "code_postal": "95000",
-        "ville": "Bangkok",
-        "date_inscription": "2026-04-04"
-    },
-    {
-        "id_user": 12,
-        "login": "mama_amour",
-        "password": "$2y$12$Hp3s4kmkAzql29tZg4hhA.FILRgK2N\/nauazzsGCtfwCUOpUjTVxm",
-        "role": "client",
-        "nom": "amour",
-        "prenom": "mama",
-        "email": "kk@gmail.com",
-        "telephone": "0102030405",
-        "adresse": "55 rue de l'Amour",
-        "code_postal": "75020",
-        "ville": "Bangkok",
-        "date_inscription": "2026-04-04"
-    },
-    {
-        "id_user": 13,
-        "login": "j_f",
-        "password": "$2y$12$zMFH3VGS7HMwLhUqVli.7eC0.Lm.9LU0WShlCchl\/R8E\/BZluljnm",
-        "role": "client",
-        "nom": "f",
-        "prenom": "j",
-        "email": "jf@gmail.com",
-        "telephone": "0600112233",
-        "adresse": "123 route de l'Espoir",
-        "code_postal": "95000",
-        "ville": "Bangkok",
-        "date_inscription": "2026-04-04"
-    },
-    {
         "id_user": 14,
         "login": "Angelo_Ladubrouille",
         "password": "user899",
@@ -211,5 +155,18 @@
         "code_interphone": "",
         "instructions": "",
         "date_inscription": "2026-04-04"
+    },{
+        "id_user": 16,
+        "login": "Bob_Leponge",
+        "password": "ananas_2026",
+        "role": "livreur",
+        "nom": "eponge",
+        "prenom": "bob",
+        "email": "bob.livraison@sunsip.fr",
+        "telephone": "0701013101",
+        "adresse": "1 rue de Gary",
+        "code_postal": "95300",
+        "ville": "Bangkok",
+        "date_inscription": "2026-02-10"
     }
 ]

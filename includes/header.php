@@ -1,4 +1,16 @@
-<?php session_start(); ?>
+<?php 
+if (session_status() === PHP_SESSION_NONE) {
+    session_start(); 
+}
+
+// Calcul du nombre d'articles total dans le panier
+$nb_articles = 0;
+if (isset($_SESSION['panier'])) {
+    foreach ($_SESSION['panier'] as $quantite) {
+        $nb_articles += $quantite;
+    }
+}
+?>
 
 <header class="headersun">
     <div class="titlegroup">
@@ -12,8 +24,17 @@
     <a href="../views/acceuil.php">Accueil</a>
     <a href="../views/presentation.php">Carte</a>
 
-       
-        
+    <?php if (!isset($_SESSION['role']) || $_SESSION['role'] === 'client'): ?>
+        <a href="panier.php" style="position: relative; font-weight: bold; color: #ff6b6b;">
+            🛒 Panier 
+            <?php if ($nb_articles > 0): ?>
+                <span style="background: red; color: white; border-radius: 50%; padding: 2px 6px; font-size: 0.8em; position: absolute; top: -10px; right: -15px;">
+                    <?= $nb_articles ?>
+                </span>
+            <?php endif; ?>
+        </a>
+    <?php endif; ?>
+
     <?php if (isset($_SESSION['user_id'])): ?>
         
         <?php if ($_SESSION['role'] === 'admin'): ?>
@@ -25,7 +46,7 @@
         <?php endif; ?>
 
         <?php if ($_SESSION['role'] === 'livreur'): ?>
-            <a href="livraison.php"> Courses à faire</a>
+            <a href="livraison.php">Courses à faire</a>
         <?php endif; ?>
 
         <?php if ($_SESSION['role'] === 'restaurateur'): ?>
