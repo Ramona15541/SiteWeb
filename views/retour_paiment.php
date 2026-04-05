@@ -8,7 +8,7 @@ $transaction = $_GET['transaction'] ?? '';
 $vendeur = $_GET['vendeur'] ?? '';
 $control_recu = $_GET['control'] ?? '';
 
-// Vérification du control de retour
+
 $mon_groupe = "MI-3_H";
 $api_key = getAPIKey($mon_groupe);
 $control_attendu = md5(
@@ -25,7 +25,6 @@ if ($control_recu !== $control_attendu) {
 
 if ($status === 'accepted') {
 
-    // 1. Sauvegarder le paiement dans paiement.json
     $json_path = '../data/paiement.json';
     $paiements = file_exists($json_path) ? json_decode(file_get_contents($json_path), true) : [];
 
@@ -65,7 +64,7 @@ if ($status === 'accepted') {
     $msg = "🎉 Paiement réussi ! Bonne dégustation !";
     $couleur = "green";
 } else {
-    $msg = "😢 Le paiement a été refusé par la banque.";
+    $msg = " Le paiement a été refusé par la banque.";
     $couleur = "red";
 }
 ?>
