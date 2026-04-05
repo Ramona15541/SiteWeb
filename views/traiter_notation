@@ -1,0 +1,41 @@
+<?php
+session_start();
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['user_id'])) {
+    
+    $id_cmd = $_POST['id_commande'];
+    $note   = $_POST['note_produit'];
+    $avis   = htmlspecialchars($_POST['avis']);
+    $fichier = 'commandes.json';
+
+    if (file_exists($fichier)) {
+        
+        $commandes = json_decode(file_get_contents($fichier), true);
+        $trouve = false;
+
+        
+        foreach ($commandes as &$cmd) {
+            if ($cmd['id_commande'] === $id_cmd && $cmd['id_user'] == $_SESSION['user_id']) {
+                
+                
+                $cmd['notation'] = [
+                    "note" => $note,
+                    "commentaire" => $avis,
+                    "date_avis" => date('d/m/Y')
+                ];
+                $trouve = true;
+                break;
+            }
+        }
+
+        
+        if ($trouve) {
+            file_put_contents($fichier, json_encode($commandes, JSON_PRETTY_PRINT));
+        }
+    }
+}
+
+
+header('Location: profil.php?success=avis_enregistre');
+exit();
