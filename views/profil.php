@@ -1,5 +1,5 @@
 <?php 
-include('../includes/header.php'); 
+include('header.php'); 
 
 if (isset($_GET['id'])) {
     $id_a_afficher = $_GET['id'];
@@ -7,8 +7,7 @@ if (isset($_GET['id'])) {
     $id_a_afficher = $_SESSION['user_id'] ?? null;
 }
 
-// 2. RÉCUPÉRATION de l'utilisateur actuel dans le JSON
-$users_data = json_decode(file_get_contents('../data/utilisateur.json'), true);
+$users_data = json_decode(file_get_contents('utilisateur.json'), true);
 $currentUser = null;
 foreach ($users_data as $u) {
     if ($u['id_user'] == $id_a_afficher) {
@@ -17,12 +16,13 @@ foreach ($users_data as $u) {
     }
 }
 
-// 3. RÉCUPÉRATION des commandes de cet utilisateur
-$orders_data = json_decode(file_get_contents('../data/commandes.json'), true);
+$orders_data = json_decode(file_get_contents('commandes.json'), true);
 $my_orders = [];
-foreach ($orders_data as $o) {
-    if ($o['id_user'] == $id_a_afficher) {
-        $my_orders[] = $o;
+if ($orders_data) {
+    foreach ($orders_data as $o) {
+        if ($o['id_user'] == $id_a_afficher) {
+            $my_orders[] = $o;
+        }
     }
 }
 ?>
@@ -32,7 +32,7 @@ foreach ($orders_data as $o) {
 <head>
     <meta charset="utf-8">
     <title>SunSip - Profil de <?php echo $currentUser['prenom']; ?></title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -70,23 +70,63 @@ foreach ($orders_data as $o) {
         <?php if (empty($my_orders)): ?>
             <p>Vous n'avez pas encore passé de commande.</p>
         <?php else: ?>
-            <?php foreach ($my_orders as $commande): ?>
-                <div class="orderitem">
+            <?php 
+            // On inverse pour voir la plus récente en premier
+            $orders_reversed = array_reverse($my_orders); 
+            foreach ($orders_reversed as $commande): 
+            ?>
+                <div class="orderitem" style="border-bottom: 1px solid #eee; padding: 15px 0; margin-bottom: 10px;">
                     <p><strong>Commande #<?php echo $commande['id_commande']; ?></strong></p>
                     <p>Date : <?php echo $commande['Date et heure']; ?></p>
-                    <p>Lieu : <?php echo $commande['adresse / sur place']; ?></p>
                     <p>Statut : 
                         <span style="color: <?php echo ($commande['Statut de la commande'] === 'livré') ? 'green' : 'orange'; ?>;">
                             <?php echo $commande['Statut de la commande']; ?>
                         </span>
                     </p>
-                    <button class="btninscription">Voir détails</button>
+                    
+                    <div style="margin-top: 10px;">
+                        <?php 
+                        
+                        if (isset($commande['notation'])): 
+                            
+                            $valeur_note = $commande['notation']['note_produit'] ?? $commande['notation']['note'] ?? 0;
+                        ?>
+                            
+                            <div style="background: #fff5f7; padding: 10px; border-radius: 8px; border: 1px solid #ffdae0; display: inline-block; min-width: 200px;">
+                                <p style="margin: 0; color: #ffb7c5; font-weight: bold; font-size: 0.9em;">Votre avis :</p>
+                                <p style="font-size: 1.2em; margin: 5px 0;">
+                                    <?php 
+                                    
+                                    for($i = 0; $i < $valeur_note; $i++) {
+                                        echo "⭐";
+                                    } 
+                                    ?>
+                                </p>
+                                <?php if(!empty($commande['notation']['commentaire'])): ?>
+                                    <p style="font-style: italic; font-size: 0.85em; margin: 0; color: #666;">
+                                        "<?php echo htmlspecialchars($commande['notation']['commentaire']); ?>"
+                                    </p>
+                                <?php endif; ?>
+                            </div>
+
+                        <?php 
+                        
+                        elseif ($commande['Statut de la commande'] === 'livré'): 
+                        ?>
+                            <a href="notation.php?id=<?php echo $commande['id_commande']; ?>" class="btninscription">
+                                Noter cette commande ⭐
+                            </a>
+                            
+                        <?php else: ?>
+                            
+                            <p style="color: #999; font-size: 0.8em;"><i>Note disponible après livraison</i></p>
+                        <?php endif; ?>
+                    </div>
                 </div>
             <?php endforeach; ?>
         <?php endif; ?>
     </div>
 </section>
-
 <footer>
     <div class="footersimple">
         <p>📍 12 rue du Smoothie, Sunsippy | mail: hello@sunsip.fr</p>
