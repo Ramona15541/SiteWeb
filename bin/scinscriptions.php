@@ -1,5 +1,4 @@
 <?php
-// On démarre la session au cas où on en aurait besoin
 session_start();
 
 // 1. Récupération des données (On utilise ?? pour éviter les notices)
