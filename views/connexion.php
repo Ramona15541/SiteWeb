@@ -26,8 +26,8 @@
 
 
         <form action="../bin/login.php" method="POST">
-            <div class="input-wrapper">
-                <div class="input-wrapper">
+            <div class="inputwrapper">
+                <div class="inputwrapper">
                 <label>Email</label>
                 <input type="text" name="mail" placeholder="fatimamimi@smoothie.com">
     
@@ -35,10 +35,11 @@
                 <input type="text" name="login" placeholder="MonPseudo">
 </div>
             </div>
-            <div class="inputwrapper">
-                <label>Ton Mot de passe</label>
-                <input type="password" name="password" placeholder="********" required>
-            </div>
+            <div style="position:relative">
+                
+        <input type="password" id="password" name="password" placeholder="Mot de passe" maxlength="32" required>
+        <span id="toggle-password" style="position: absolute; right: 20px; top: 12px; cursor: pointer; z-index: 10;">👁️</span>
+    </div>
             <p class="passwordoversight"><a href="#">Mot de passe oublié ?</a></p>
             <button type="submit" class="btninscription">Aller chercher mon smoothie !</button>
         </form>
@@ -47,6 +48,6 @@
 </section>
 
 <?php include('../includes/footer.php'); ?>
-
+<script src="../js/validation.js"></script>
 </body>
 </html>
