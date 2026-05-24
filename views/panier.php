@@ -104,5 +104,6 @@ $_SESSION['total_general'] = $total_general;
             <?php endif; ?>
         </div>
     </section>
+    <script src="../js/theme.js" defer></script>
 </body>
 </html>
