@@ -1,4 +1,4 @@
-<?php 
+<?php //////////////////////////////////////////
 if (session_status() === PHP_SESSION_NONE) {
     session_start(); 
 }
@@ -18,9 +18,11 @@ if (isset($_SESSION['panier'])) {
         <p class="slogan">"Frais et délicieux : Le smoothie qui défie le soleil !"</p>
     </div>
     <img src="../images/logo.jpeg" alt="Logo SunSip" class="removebg">
+    
 </header>
 
 <nav class="navsimple">
+    <button id="theme-toggle" style="background: none; border: none; cursor: pointer; font-size: 20px;">🌓</button>
     <a href="../views/acceuil.php">Accueil</a>
     <a href="../views/presentation.php">Carte</a>
 
@@ -59,4 +61,7 @@ if (isset($_SESSION['panier'])) {
         <a href="inscription.php">S'inscrire</a>
         <a href="connexion.php">Connexion</a>
     <?php endif; ?>
+    
 </nav>
+
+<script src="../js/theme.js" defer></script>
