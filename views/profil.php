@@ -1,4 +1,4 @@
-<?php //////////////////////////////////////////////////////
+<?php 
 include('../includes/header.php'); 
 
 if (isset($_GET['id'])) {
