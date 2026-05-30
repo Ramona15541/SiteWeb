@@ -2,12 +2,11 @@
 session_start();
 require('getapikey.php');
 
-$status = $_GET['status'] ?? 'declined';
+$statut = $_GET['status'] ?? 'declined';
 $montant = $_GET['montant'] ?? 0;
 $transaction = $_GET['transaction'] ?? '';
 $vendeur = $_GET['vendeur'] ?? '';
 $control_recu = $_GET['control'] ?? '';
-
 
 $mon_groupe = "MI-3_H";
 $api_key = getAPIKey($mon_groupe);
@@ -16,17 +15,17 @@ $control_attendu = md5(
     $transaction . "#" .
     $montant . "#" .
     $vendeur . "#" .
-    $status . "#"
+    $statut . "#"
 );
 
 if ($control_recu !== $control_attendu) {
     die("Erreur : contrôle de sécurité invalide !");
 }
 
-if ($status === 'accepted') {
+if ($statut === 'accepted') {
 
-    $json_path = '../data/paiement.json';
-    $paiements = file_exists($json_path) ? json_decode(file_get_contents($json_path), true) : [];
+    $chemin_paiement = '../data/paiement.json';
+    $paiements = file_exists($chemin_paiement) ? json_decode(file_get_contents($chemin_paiement), true) : [];
 
     $paiements[] = [
         "id_paiement" => count($paiements) + 1,
@@ -42,30 +41,29 @@ if ($status === 'accepted') {
         "statut_transaction" => "succes",
         "date_transaction" => date("d/m/Y H:i")
     ];
-    file_put_contents($json_path, json_encode($paiements, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+    file_put_contents($chemin_paiement, json_encode($paiements, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
 
-    // 2. Mettre à jour le statut dans commandes.json
-    $json_commandes = '../data/commandes.json';
-    $commandes = file_exists($json_commandes) ? json_decode(file_get_contents($json_commandes), true) : [];
+    $chemin_commandes = '../data/commandes.json';
+    $commandes = file_exists($chemin_commandes) ? json_decode(file_get_contents($chemin_commandes), true) : [];
+    $id_cible = $_SESSION['derniere_commande'] ?? 0;
 
     foreach ($commandes as &$commande) {
-        if ($commande['id_commande'] === ($_SESSION['derniere_commande'] ?? 0)) {
+        if ((int)$commande['id_commande'] === (int)$id_cible) {
             $commande['statut_paiement'] = 'paye';
-            $commande['statut'] = 'en_preparation';
+            $commande['statut_commande'] = 'a_preparer';
             break;
         }
     }
-    file_put_contents($json_commandes, json_encode($commandes, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+    file_put_contents($chemin_commandes, json_encode($commandes, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
 
-    // 3. Vider le panier
     unset($_SESSION['panier']);
     unset($_SESSION['total_general']);
 
-    $msg = "🎉 Paiement réussi ! Bonne dégustation !";
-    $couleur = "green";
+    $message_affichage = "Paiement réussi ! Bonne dégustation !";
+    $classe_couleur = "retour-paiement-succes";
 } else {
-    $msg = " Le paiement a été refusé par la banque.";
-    $couleur = "red";
+    $message_affichage = "Le paiement a été refusé par la banque.";
+    $classe_couleur = "retour-paiement-echec";
 }
 ?>
 
@@ -74,7 +72,7 @@ if ($status === 'accepted') {
 <head>
     <meta charset="UTF-8">
     <title>SunSip - Retour paiement</title>
-    <link rel="stylesheet" href="../style.css">
+    <link class="lien-style" rel="stylesheet" href="../style.css">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -82,12 +80,12 @@ if ($status === 'accepted') {
 <?php include('../includes/header.php'); ?>
 
 <section class="formsection">
-    <div class="formcontainer" style="text-align:center;">
-        <h2 style="color:<?php echo $couleur; ?>;"><?php echo $msg; ?></h2>
+    <div class="formcontainer conteneur-retour-paiement">
+        <h2 class="<?php echo $classe_couleur; ?>"><?php echo $message_affichage; ?></h2>
         <p>Montant : <strong><?php echo $montant; ?> €</strong></p>
         <p>Transaction : <strong><?php echo $transaction; ?></strong></p>
         <br>
-        <a href="acceuil.php" class="btninscription">Retour à l'accueil</a>
+        <a href="accueil.php" class="btninscription">Retour à l'accueil</a>
         <a href="profil.php" class="btnview">Voir mes commandes</a>
     </div>
 </section>

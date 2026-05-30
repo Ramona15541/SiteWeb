@@ -1,20 +1,80 @@
-<?php
-session_start();
+<?php 
+ 
+session_start(); 
+ 
 
-if (isset($_GET['cle'])) {
-    $cle = $_GET['cle'];
+if (!isset($_SESSION['panier'])) { 
+ 
+   header('Location: panier.php'); 
+   exit(); 
+} 
+ 
+ 
+if (!isset($_GET['cle'])) { 
+ 
+   header('Location: panier.php'); 
+   exit(); 
+} 
+ 
+$cle = $_GET['cle']; 
+ 
 
-    if (isset($_SESSION['panier'][$cle])) {
-        // Si plus de 1, on baisse juste la quantité
-        if ($_SESSION['panier'][$cle] > 1) {
-            $_SESSION['panier'][$cle]--;
-        } else {
-            
-            unset($_SESSION['panier'][$cle]);
-        }
-    }
-}
+ 
+if ( 
+   isset($_SESSION['statut_commande']) && 
+   $_SESSION['statut_commande'] === 'preparation' 
+) { 
+ 
+   $_SESSION['erreur_panier'] = 
+       "Impossible de modifier une commande en préparation."; 
+ 
+   header('Location: panier.php'); 
+   exit(); 
+} 
+ 
 
-header('Location: panier.php');
+ 
+if (!isset($_SESSION['ancien_total'])) { 
+ 
+   $_SESSION['ancien_total'] = 
+       $_SESSION['total_general'] ?? 0; 
+} 
+ 
+
+ 
+if (isset($_SESSION['panier'][$cle])) { 
+ 
+  
+ 
+   if ($_SESSION['panier'][$cle] > 1) { 
+ 
+       $_SESSION['panier'][$cle]--; 
+ 
+       $_SESSION['message_panier'] = 
+           "Quantité diminuée."; 
+ 
+   } 
+ 
+  
+ 
+   else { 
+ 
+       unset($_SESSION['panier'][$cle]); 
+ 
+       $_SESSION['message_panier'] = 
+           "Produit supprimé du panier."; 
+   } 
+} 
+ 
+
+ 
+if (empty($_SESSION['panier'])) { 
+ 
+   unset($_SESSION['panier']); 
+} 
+ 
+/* Retour panier */ 
+ 
+header('Location: panier.php'); 
+ 
 exit();
-?>

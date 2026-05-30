@@ -1,28 +1,45 @@
-<?php 
-include('../includes/header.php'); 
+<?php
+session_start();
 
-if (isset($_GET['id'])) {
-    $id_a_afficher = $_GET['id'];
-} else {
-    $id_a_afficher = $_SESSION['user_id'] ?? null;
-}
+$fichier_commandes = '../data/commandes.json';
+$commandes = file_exists($fichier_commandes) ? json_decode(file_get_contents($fichier_commandes), true) : [];
+$produits = json_decode(file_get_contents('../data/plat.json'), true) ?? [];
 
-$users_data = json_decode(file_get_contents('../data/utilisateur.json'), true);
-$currentUser = null;
-foreach ($users_data as $u) {
-    if ($u['id_user'] == $id_a_afficher) {
-        $currentUser = $u;
-        break;
+$id_client = $_SESSION['user_id'] ?? $_SESSION['id_user'] ?? null;
+
+$commandes_client = [];
+if ($id_client) {
+    foreach ($commandes as $cmd) {
+        if ((int)($cmd['id_user'] ?? 0) === (int)$id_client) {
+            $commandes_client[] = $cmd;
+        }
     }
 }
 
-$orders_data = json_decode(file_get_contents('../data/commandes.json'), true);
-$my_orders = [];
-if ($orders_data) {
-    foreach ($orders_data as $o) {
-        if ($o['id_user'] == $id_a_afficher) {
-            $my_orders[] = $o;
+function getDetailsCommande($ids_items, $catalogue) {
+    if (empty($ids_items) || empty($catalogue)) {
+        return "Aucun article";
+    }
+    $liste = [];
+    $ids = is_array($ids_items) ? $ids_items : [$ids_items];
+    foreach ($ids as $id) {
+        foreach ($catalogue as $p) {
+            if ($p['id'] == $id) {
+                $liste[] = $p['nom'];
+            }
         }
+    }
+    return empty($liste) ? "Articles non trouvés" : implode(", ", $liste);
+}
+
+function getStatutBadge($statut) {
+    switch ($statut) {
+        case 'en_attente': return ['label' => 'En attente de paiement', 'color' => 'gray'];
+        case 'a_preparer': return ['label' => 'En attente de préparation', 'color' => 'orange'];
+        case 'en_preparation': return ['label' => 'En préparation', 'color' => 'blue'];
+        case 'en_route': return ['label' => 'En cours de livraison', 'color' => 'purple'];
+        case 'livree': return ['label' => 'Livrée', 'color' => 'green'];
+        default: return ['label' => 'Inconnu', 'color' => 'black'];
     }
 }
 ?>
@@ -30,111 +47,81 @@ if ($orders_data) {
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="utf-8">
-    <title>SunSip - profil de <?php echo $currentUser['prenom']; ?></title>
+    <meta charset="UTF-8">
+    <title>SunSip - Mon Profil</title>
     <link rel="stylesheet" href="../style.css">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-<section class="formsectionn">
-    <div class="formcontainerr">
-        <h2 class="titlepink">Mon profil</h2>
-        <div class="formgroupcolumn">
-            <p><strong>Nom :</strong> <?php echo $currentUser['nom']; ?> <i class="fas fa-pencil-alt editicon" title="Modifier"></i></p>
-            <p><strong>Prénom :</strong> <?php echo $currentUser['prenom']; ?> <i class="fas fa-pencil-alt editicon" title="Modifier"></i></p>
-            <p><strong>Email :</strong> <?php echo $currentUser['email']; ?> <i class="fas fa-pencil-alt editicon" title="Modifier"></i></p>
-            <p><strong>Téléphone :</strong> <?php echo $currentUser['telephone'] ?? 'Non renseigné'; ?> <i class="fas fa-pencil-alt editicon" title="Modifier"></i></p>
-            <p><strong>Adresse :</strong> <?php echo ($currentUser['adresse'] ?? 'Non renseignée') . ", " . ($currentUser['ville'] ?? ''); ?> <i class="fas fa-pencil-alt editicon" title="Modifier"></i></p>
-        </div>
-    </div>
-</section>
+<?php include('../includes/header.php'); ?>
 
-<section class="formsectionn">
-    <div class="formcontainerr">
-        <h2 class="titlepink">Mon compte fidélité</h2>
-        <div class="formgroupcolumn">
-            <p><strong>Points actuels :</strong> <?php echo $currentUser['points'] ?? '0'; ?> points</p>
-            <p class="loyaltyemessage">
-                Encore quelques smoothies pour un cadeau ! 
-            </p>
-        </div>
-    </div>
-</section>
-
-<section class="formsectionn">
-    <div class="formcontainerr">
+<main class="formsection">
+    <div class="formcontainer" style="max-width: 800px;">
         <h2 class="titlepink">Mes anciennes commandes</h2>
-        
-        <?php if (empty($my_orders)): ?>
+
+        <?php if (empty($commandes_client)): ?>
             <p>Vous n'avez pas encore passé de commande.</p>
         <?php else: ?>
-            <?php 
-            
-            $orders_reversed = array_reverse($my_orders); 
-            foreach ($orders_reversed as $commande): 
-            ?>
-                <div class="orderitem" style="border-bottom: 1px solid #eee; padding: 15px 0; margin-bottom: 10px;">
-                    <p><strong>Commande #<?php echo $commande['id_commande']; ?></strong></p>
-                    <p>Date : <?php echo $commande['Date et heure']; ?></p>
-                    <p>Statut : 
-                        <span style="color: <?php echo ($commande['Statut de la commande'] === 'livré') ? 'green' : 'orange'; ?>;">
-                            <?php echo $commande['Statut de la commande']; ?>
-                        </span>
-                    </p>
-                    
-                    <div style="margin-top: 10px;">
-                        <?php 
+            <div class="liste-commandes" style="margin-top: 20px; text-align: left;">
+                <?php foreach (array_reverse($commandes_client) as $commande): 
+                    $id_cmd = $commande['id_commande'] ?? 0;
+                    $date_cmd = $commande['date_heure'] ?? '--/--/---- --:--';
+                    $statut_brut = $commande['statut_commande'] ?? 'en_attente';
+                    $badge = getStatutBadge($statut_brut);
+                ?>
+                    <div class="ordercard" style="border: 1px solid #ddd; padding: 15px; margin-bottom: 15px; border-radius: 8px; background: #fff;">
+                        <div class="orderheader" style="display: flex; justify-content: space-between; font-weight: bold;">
+                            <span class="idorder" style="color: #ff6b6b;">Commande #<?= $id_cmd ?></span>
+                            <span class="hour" style="font-size: 0.9em; color: #666;">Date : <?= htmlspecialchars($date_cmd) ?></span>
+                        </div>
                         
-                        if (isset($commande['notation'])): 
-                            
-                            $valeur_note = $commande['notation']['note_produit'] ?? $commande['notation']['note'] ?? 0;
-                        ?>
-                            
-                            <div style="background: #fff5f7; padding: 10px; border-radius: 8px; border: 1px solid #ffdae0; display: inline-block; min-width: 200px;">
-                                <p style="margin: 0; color: #ffb7c5; font-weight: bold; font-size: 0.9em;">Votre avis :</p>
-                                <p style="font-size: 1.2em; margin: 5px 0;">
-                                    <?php 
-                                    
-                                    for($i = 0; $i < $valeur_note; $i++) {
-                                        echo "⭐";
-                                    } 
-                                    ?>
-                                </p>
-                                <?php if(!empty($commande['notation']['commentaire'])): ?>
-                                    <p style="font-style: italic; font-size: 0.85em; margin: 0; color: #666;">
-                                        "<?php echo htmlspecialchars($commande['notation']['commentaire']); ?>"
-                                    </p>
-                                <?php endif; ?>
-                            </div>
+                        <div style="margin: 10px 0;">
+                            <strong>Statut : </strong>
+                            <span style="color: <?= $badge['color'] ?>; font-weight: bold;"><?= $badge['label'] ?></span>
+                        </div>
 
-                        <?php 
-                        
-                        elseif ($commande['Statut de la commande'] === 'livré'): 
-                        ?>
-                            <a href="notation.php?id=<?php echo $commande['id_commande']; ?>" class="btninscription">
-                                Noter cette commande ⭐
-                            </a>
-                            
-                        <?php else: ?>
-                            
-                            <p style="color: #999; font-size: 0.8em;"><i>Note disponible après livraison</i></p>
-                        <?php endif; ?>
-                    </div>
-                </div>
-            <?php endforeach; ?>
+                        <div class="order-content" style="background: #f9f9f9; padding: 10px; border-radius: 5px; margin: 10px 0;">
+                            <strong>Articles :</strong>
+                            <p style="margin: 5px 0 0 0; color: #555;">
+                                <?php 
+                                    $items = $commande['id_plats'] ?? $commande['id_menus'] ?? [];
+                                    echo getDetailsCommande($items, $produits); 
+                                ?>
+                            </p>
+                        </div>
+
+                       <div class="note-section" style="margin-top: 10px; font-size: 0.9em;">
+    <?php if ($statut_brut === 'livree'): ?>
+        <?php 
+        // On regarde si la commande a déjà reçu une note
+        $deja_notee = $commande['notation_envoyee'] ?? false; 
+        ?>
+        
+        <?php if ($deja_notee): ?>
+            <span style="color: #27ae60; font-weight: bold;">✓ Commande livrée et notée ! Merci pour votre avis. ⭐</span>
+        <?php else: ?>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="color: #27ae60; font-weight: bold;">✓ Commande livrée !</span>
+                <a href="notation.php?id_commande=<?= $id_cmd ?>" style="text-decoration: none;">
+                    <button type="button" style="background-color: var(--rose, #ff6b6b); color: white; border: none; padding: 6px 12px; border-radius: 20px; font-weight: bold; cursor: pointer; font-size: 0.9em;">
+                        Noter la commande ⭐
+                    </button>
+                </a>
+            </div>
+        <?php endif; ?>
+
+    <?php else: ?>
+        <span style="color: #888; font-size: 0.9em;">Note disponible après livraison</span>
+    <?php endif; ?>
+</div>
+                <?php endforeach; ?>
+            </div>
         <?php endif; ?>
     </div>
-</section>
-<footer>
-    <div class="footersimple">
-        <p>📍 12 rue du Smoothie, Sunsippy | mail: hello@sunsip.fr</p>
-        <p class="instapote">Suivez-nous sur Insta : <strong>@SunSip_Fresh</strong> </p>
-        <hr class="minibar">
-        <p>SunSip &copy; 2026 - Fait avec amour 🍓</p>
-    </div>
-</footer>
+</main>
+
+<?php include('../includes/footer.php'); ?>
 
 </body>
 </html>

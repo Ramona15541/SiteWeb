@@ -10,7 +10,11 @@
 <body>
 
 
-
+<?php if (isset($_GET['erreur']) && $_GET['erreur'] === 'compte_bloque'): ?>
+    <div style="background-color: #ffe5e5; color: #cc0000; padding: 10px; border-radius: 5px; margin-bottom: 15px; text-align: center; font-weight: bold; border: 1px solid #cc0000;">
+         Votre compte a été bloqué par l'administrateur. Accès refusé.
+    </div>
+<?php endif; ?>
 <section class="formsection">
     <div class="formcontainer">
         <h2 class="titlepink">Se connecter</h2>

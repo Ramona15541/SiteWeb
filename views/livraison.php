@@ -1,7 +1,6 @@
 <?php 
 include('../includes/header.php'); 
 
-// 1. Vérification sécurité (Livreur uniquement)
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'livreur') {
     header('Location: connexion.php');
     exit();
@@ -9,11 +8,9 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'livreur') {
 
 $id_livreur = $_SESSION['user_id'];
 
-// 2. Chargement des données
-$commandes = json_decode(file_get_contents('../data/commandes.json'), true);
-$utilisateurs = json_decode(file_get_contents('../data/utilisateur.json'), true);
+$commandes = json_decode(file_get_contents('../data/commandes.json'), true) ?? [];
+$utilisateurs = json_decode(file_get_contents('../data/utilisateur.json'), true) ?? [];
 
-// Fonction pour retrouver le nom d'un client via son ID
 function ClientInfo($id, $users) {
     foreach ($users as $u) {
         if ($u['id_user'] == $id) return $u;
@@ -46,7 +43,7 @@ function ClientInfo($id, $users) {
             $a_des_livraisons = true;
             $client = ClientInfo($commande['id_user'], $utilisateurs);
     ?>
-        <section class="carddelivery" style="margin-bottom: 20px;">
+        <section class="carddelivery" id="carte-<?= $commande['id_commande']; ?>" style="margin-bottom: 20px; transition: all 0.4s ease;">
             <div class="clientinfo">
                 <h1 class="nameclient"><?php echo $client['prenom'] . " " . $client['nom']; ?></h1>
                 <p>Commande #<?php echo $commande['id_commande']; ?></p>
@@ -78,26 +75,64 @@ function ClientInfo($id, $users) {
                 <p class="commdeliveryperson"><?php echo $client['instructions'] ?? 'Aucune instruction particulière.'; ?></p>
             </div>
 
-            <form action="../bin/update_commande.php" method="POST">
-                <input type="hidden" name="id_commande" value="<?php echo $commande['id_commande']; ?>">
-                <input type="hidden" name="nouveau_statut" value="livree">
+            <form onsubmit="validerLivraison(event, '<?php echo $commande['id_commande']; ?>')">
                 <button type="submit" class="btnvalidatedelivery">Marquer comme LIVRÉ</button>
             </form>
         </section>
     <?php 
         endif; 
     endforeach; 
+    ?>
 
-    if (!$a_des_livraisons): ?>
-        <p style="text-align: center; margin-top: 50px;"> Aucune livraison à effectuer pour le moment !</p>
-    <?php endif; ?>
+    <p id="msg-vide" style="text-align: center; margin-top: 50px; display: <?= !$a_des_livraisons ? 'block' : 'none' ?>;">
+         Aucune livraison à effectuer pour le moment !
+    </p>
 </main>
 
 <footer>
     <div class="footersimple">
-        <p>SunSip &copy; 2026 - Espace Livreur </p>
+        <p>SunSip © 2026 - Espace Livreur </p>
     </div>
 </footer>
+
+<script>
+function validerLivraison(event, idCommande) {
+    event.preventDefault();
+
+    const formData = new FormData();
+    formData.append('id_commande', idCommande);
+    formData.append('nouveau_statut', 'livree');
+
+    fetch('../bin/update_commande.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.statut === 'ok') {
+            const carte = document.getElementById('carte-' + idCommande);
+            if (carte) {
+                carte.style.opacity = '0';
+                carte.style.transform = 'scale(0.9)';
+                setTimeout(() => {
+                    carte.remove();
+                    
+                    const cartesRestantes = document.querySelectorAll('.carddelivery');
+                    if (cartesRestantes.length === 0) {
+                        document.getElementById('msg-vide').style.display = 'block';
+                    }
+                }, 400);
+            }
+        } else {
+            alert('Erreur lors de la mise à jour : ' + (data.message || 'Inconnue'));
+        }
+    })
+    .catch(error => {
+        console.error('Erreur:', error);
+        alert('Erreur de connexion au serveur.');
+    });
+}
+</script>
 
 </body>
 </html>

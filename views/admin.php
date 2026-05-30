@@ -1,5 +1,4 @@
 <?php 
-
 include '../includes/header.php'; 
 
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
@@ -24,8 +23,6 @@ $utilisateurs = json_decode($json, true);
     <h1 class="titlepink">Tableau de Bord Admin</h1>
 </header>
 
-
-
 <section class="admincontainer">
     <div class="admincard">
         <h2 class="titleblue">Gestion des Utilisateurs</h2>
@@ -37,49 +34,71 @@ $utilisateurs = json_decode($json, true);
         </div>
 
         <table class="usertable">
-    <thead>
-        <tr>
-            <th>Utilisateur</th>
-            <th>Email</th>
-            <th>Statut actuel</th>
-            <th>Remise</th>
-            <th>Actions de gestion</th> </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($utilisateurs as $user): ?>
-            <tr>
-                <td><strong><?php echo $user['nom'] . " " . $user['prenom']; ?></strong></td>
-                <td><?php echo $user['email']; ?></td>
-                
-                <td>
-                    <span class="badge <?php echo ($user['role'] === 'admin') ? 'admin-color' : 'user-color'; ?>">
-                        <?php echo $user['role']; ?>
-                    </span>
-                </td>
-
-                <td>0%</td> 
-
-                <td>
-                    <div class="admin-actions">
-                        <select name="change_status">
-                            <option value="">Modifier Statut...</option>
-                            <option value="vip">Passer VIP</option>
-                            <option value="premium">Passer Premium</option>
-                        </select>
+            <thead>
+                <tr>
+                    <th>Utilisateur</th>
+                    <th>Email</th>
+                    <th>Statut actuel</th>
+                    <th>Remise</th>
+                    <th>Actions de gestion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($utilisateurs as $user): ?>
+                    <?php 
+                    $statut = $user['statut'] ?? 'normal'; 
+                    ?>
+                    <tr id="ligne-<?php echo $user['id_user']; ?>" class="<?php echo ($statut === 'bloque') ? 'user-row-blocked' : ''; ?>">
+                        <td><strong><?php echo htmlspecialchars($user['nom'] . " " . $user['prenom']); ?></strong></td>
+                        <td><?php echo htmlspecialchars($user['email']); ?></td>
                         
-                        <button class="btn-block" title="Bloquer le compte">🚫</button>
-                        <a href="profil.php?id=<?php echo $user['id_user']; ?>" class="btnview">Voir Profil</a>
-                    </div>
-                </td>
-            </tr>
-        <?php endforeach; ?>
-    </tbody>
-</table>
+                        <td>
+                            <span class="badge <?php echo ($user['role'] === 'admin') ? 'admin-color' : 'user-color'; ?>">
+                                <?php echo $user['role']; ?>
+                            </span>
+                            <?php if ($statut === 'bloque'): ?>
+                                <span class="text-blocked">(Bloqué)</span>
+                            <?php elseif ($statut === 'vip'): ?>
+                                <span class="text-vip">⭐ VIP</span>
+                            <?php elseif ($statut === 'premium'): ?>
+                                <span class="text-premium">💎 Premium</span>
+                            <?php endif; ?>
+                        </td>
+
+                        <td>
+                            <?php 
+                            if ($statut === 'vip') echo "Smoothie offert";
+                            elseif ($statut === 'premium') echo "10%";
+                            else echo "0%";
+                            ?>
+                        </td> 
+
+                        <td>
+                            <div class="admin-actions">
+                                <button class="btn-vip" title="Passer VIP" onclick="passerVip('<?php echo $user['id_user']; ?>')">⭐ VIP</button>
+                                
+                                <button class="btn-premium" title="Passer Premium" onclick="passerPremium('<?php echo $user['id_user']; ?>')">💎 Premium</button>
+                                
+                                <button class="btn-block" title="Bloquer le compte" onclick="envoyerBlocage('<?php echo $user['id_user']; ?>')">🚫</button>
+                                
+                                <a href="profil.php?id=<?php echo $user['id_user']; ?>" class="btnview">Voir Profil</a>
+                            </div>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<section class="admin-stats-section">
+    <?php include('stats.php'); ?>
 </section>
 
 <footer>
     <p>Espace sécurisé - SunSip Admin</p>
 </footer>
 
+<script src="admin.js"></script>
 </body>
 </html>

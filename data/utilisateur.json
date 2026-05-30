@@ -34,7 +34,7 @@
         "role": "admin",
         "nom": "Star",
         "prenom": "Amina",
-        "email": "Aminastar26@sunsip.fr",
+        "email": "user999",
         "telephone": "0603040506",
         "adresse": "8 boulevard Mangue",
         "code_postal": "95000",
@@ -67,7 +67,8 @@
         "adresse": "42 rue du Miaou",
         "code_postal": "75010",
         "ville": "Bangkok",
-        "date_inscription": "2026-03-01"
+        "date_inscription": "2026-03-01",
+        "statut": "bloque"
     },
     {
         "id_user": 6,
@@ -81,7 +82,8 @@
         "adresse": "7 impasse K-Pop",
         "code_postal": "92000",
         "ville": "Bangkok",
-        "date_inscription": "2026-03-05"
+        "date_inscription": "2026-03-05",
+        "statut": "bloque"
     },
     {
         "id_user": 7,
@@ -95,7 +97,8 @@
         "adresse": "10 avenue du Soleil",
         "code_postal": "75001",
         "ville": "Bangkok",
-        "date_inscription": "2026-03-10"
+        "date_inscription": "2026-03-10",
+        "statut": "vip"
     },
     {
         "id_user": 8,
@@ -109,7 +112,8 @@
         "adresse": "22 rue des Fleurs",
         "code_postal": "95000",
         "ville": "Bangkok",
-        "date_inscription": "2026-03-15"
+        "date_inscription": "2026-03-15",
+        "statut": "vip"
     },
     {
         "id_user": 9,
@@ -123,7 +127,8 @@
         "adresse": "5 rue de la Débrouille",
         "code_postal": "93000",
         "ville": "Bangkok",
-        "date_inscription": "2026-03-20"
+        "date_inscription": "2026-03-20",
+        "statut": "vip"
     },
     {
         "id_user": 14,
@@ -154,8 +159,10 @@
         "etage": "",
         "code_interphone": "",
         "instructions": "",
-        "date_inscription": "2026-04-04"
-    },{
+        "date_inscription": "2026-04-04",
+        "statut": "premium"
+    },
+    {
         "id_user": 16,
         "login": "Bob_Leponge",
         "password": "ananas_2026",

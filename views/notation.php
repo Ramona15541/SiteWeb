@@ -1,68 +1,52 @@
-<?php 
+<?php
 session_start();
-include('../includes/header.php'); 
 
-
-if (!isset($_SESSION['user_id'])) {
-    header('Location: ../bin/login.php');
-    exit();
+// 1. On vérifie juste si le client est bien connecté
+if (!isset($_SESSION['user_id'])) { 
+   header('Location: connexion.php'); 
+   exit(); 
 }
 
-
-$id_cmd = $_GET['id'] ?? null;
+// 2. On récupère l'ID de la commande envoyé par ton bouton rose du profil
+$id_commande = $_GET['id_commande'] ?? null;
+if (!$id_commande) {
+    die("Aucune commande spécifiée.");
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>SunSip - Notation</title>
-    
+    <title>Noter ma commande</title>
     <link rel="stylesheet" href="../style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body>
+    <?php include('../includes/header.php'); ?>
 
-<section class="formsection">
-    <div class="formcontainer">
-       
-        <h2 class="titlepink">Noter ma commande</h2>
-        
-     
-        <p class="ratingorder">Commande #<?php echo htmlspecialchars($id_cmd); ?></p>
-        
-        <form action="traiter_notation.php" method="POST">
-          
-            <input type="hidden" name="id_commande" value="<?php echo htmlspecialchars($id_cmd); ?>">
-
+    <main class="formsection">
+        <div class="formcontainer">
+            <h2>Donnez votre avis sur la commande #<?= htmlspecialchars($id_commande) ?></h2>
             
-            <div class="grade">
-                <label class="gradestyle">Qualité des produits :</label>
-                <select name="note_produit" class="formselect">
-                    <option value="5">⭐⭐⭐⭐⭐</option>
-                    <option value="4">⭐⭐⭐⭐</option>
-                    <option value="3">⭐⭐⭐</option>
-                    <option value="2">⭐⭐</option>
-                    <option value="1">⭐</option>
-                </select>
-            </div>
+            <form action="traiter_notation.php" method="POST">
+                
+                <input type="hidden" name="id_commande" value="<?= htmlspecialchars($id_commande) ?>">
 
-            
-            <div class="comment">
-                <textarea name="avis" class="smalltext" placeholder="Votre avis nous intéresse..."></textarea>
-            </div>
+                <p>
+                    <label>Votre note (de 1 à 5) :</label><br>
+                    <input type="number" name="note_produit" min="1" max="5" required>
+                </p>
 
-           
-            <button type="submit" class="btninscription">Envoyer l'avis</button>
-        </form>
-        
-        <p style="margin-top: 15px;">
-            <a href="profil.php" style="text-decoration: none; color: #666; font-size: 0.8em;">Retour au profil</a>
-        </p>
-    </div>
-</section>
+                <p>
+                    <label>Votre commentaire :</label><br>
+                    <textarea name="avis" rows="5" required></textarea>
+                </p>
 
-<?php include('../includes/footer.php'); ?>
+                <button type="submit">Envoyer mon avis ⭐</button>
+            </form>
+        </div>
+    </main>
 
+    <?php include('../includes/footer.php'); ?>
 </body>
 </html>

@@ -35,6 +35,7 @@ $nouvel_user = [
     "login" => $prenom . "_" . $nom,
     "password" => $password,
     "role" => "client",
+    "statut" => "normal", 
     "nom" => $nom,
     "prenom" => $prenom,
     "email" => $email,

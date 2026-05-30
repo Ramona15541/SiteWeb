@@ -3,6 +3,22 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start(); 
 }
 
+// Expulsion utilisateur bloqué
+if (isset($_SESSION['user_id'])) {
+      
+    $liste_utilisateurs = json_decode(file_get_contents('../data/utilisateur.json'), true);
+    
+    foreach ($liste_utilisateurs as $utilisateur) {
+        if ($utilisateur['id_user'] == $_SESSION['user_id']) {
+            if (isset($utilisateur['statut']) && $utilisateur['statut'] === 'bloque') {
+                session_destroy();
+                header('Location: connexion.php?erreur=compte_bloque');
+                exit();
+            }
+        }
+    }
+}
+
 // Calcul du nombre d'articles total dans le panier
 $nb_articles = 0;
 if (isset($_SESSION['panier'])) {
@@ -25,6 +41,7 @@ if (isset($_SESSION['panier'])) {
     <button id="theme-toggle" style="background: none; border: none; cursor: pointer; font-size: 20px;">🌓</button>
     <a href="../views/acceuil.php">Accueil</a>
     <a href="../views/presentation.php">Carte</a>
+    <a href="avis.php">Avis Clients</a>
 
     <?php if (!isset($_SESSION['role']) || $_SESSION['role'] === 'client'): ?>
         <a href="panier.php" style="position: relative; font-weight: bold; color: #ff6b6b;">
