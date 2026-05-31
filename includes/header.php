@@ -41,7 +41,7 @@ if (isset($_SESSION['panier'])) {
     <button id="theme-toggle">🌓</button>
     <a href="../views/acceuil.php">Accueil</a>
     <a href="../views/presentation.php">Carte</a>
-    <a href="../views/avis.php">Avis Clients</a>
+    <a href="../views/avis.php">Avis clients</a>
 
     <?php if (!isset($_SESSION['role']) || $_SESSION['role'] === 'client'): ?>
         <a href="panier.php">
