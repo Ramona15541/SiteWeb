@@ -27,9 +27,6 @@ if (
    header('Location: presentation.php'); 
    exit(); 
 } 
- 
-
- 
 if ( 
    isset($_SESSION['statut_commande']) && 
    $_SESSION['statut_commande'] === 'preparation' 
