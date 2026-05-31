@@ -42,6 +42,7 @@ if (isset($_SESSION['panier'])) {
     <a href="../views/acceuil.php">Accueil</a>
     <a href="../views/presentation.php">Carte</a>
     <a href="../views/avis.php">Avis clients</a>
+    <a href="../views/populaire.php">Les stars</a>
 
     <?php if (!isset($_SESSION['role']) || $_SESSION['role'] === 'client'): ?>
         <a href="panier.php">
