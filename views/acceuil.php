@@ -71,7 +71,7 @@
     <h2 class="titlepink">Notre Best-Seller</h2>
     <div class="product star">
         <div class="badgestar">LE DRAGON CRUSH</div>
-        <img src="../images/ssexo2.png" alt="Dragon Crush">
+        <img src="../images/8.png" alt="Dragon Crush">
         <h3>Dragon Crush</h3>
         <p class="textpresentation">L'explosion exotique du fruit du dragon et de la fraise.</p>
         <span class="prix">7.50€</span>
