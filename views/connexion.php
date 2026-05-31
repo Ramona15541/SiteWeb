@@ -11,7 +11,7 @@
 
 
 <?php if (isset($_GET['erreur']) && $_GET['erreur'] === 'compte_bloque'): ?>
-    <div style="background-color: #ffe5e5; color: #cc0000; padding: 10px; border-radius: 5px; margin-bottom: 15px; text-align: center; font-weight: bold; border: 1px solid #cc0000;">
+    <div>
          Votre compte a été bloqué par l'administrateur. Accès refusé.
     </div>
 <?php endif; ?>
@@ -20,7 +20,7 @@
         <h2 class="titlepink">Se connecter</h2>
         
         <?php if (isset($_GET['erreur'])): ?>
-    <p style="color: red; text-align: center; font-weight: bold;">
+    <p>
         <?php 
             if($_GET['erreur'] == 'password') echo "oupsi, mot de passe incorrect..?";
             if($_GET['erreur'] == 'introuvable') echo "oupsi, mauvais email..?";
