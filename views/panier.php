@@ -1,10 +1,8 @@
 <?php
 session_start();
 
-
 $fichier_plats = '../data/plat.json'; 
 $fichier_menus = '../data/menu.json';
-
 
 $plats = file_exists($fichier_plats) ? json_decode(file_get_contents($fichier_plats), true) : [];
 $menus = file_exists($fichier_menus) ? json_decode(file_get_contents($fichier_menus), true) : [];
@@ -20,15 +18,16 @@ if (!empty($_SESSION['panier'])) {
 
         list($type, $id) = $parts;
         
-       
         $source = ($type === 'plat') ? $plats : $menus;
         $produit_trouve = null;
 
-        
         if (!empty($source)) {
             foreach ($source as $item) {
                 $cle_id = ($type === 'plat') ? 'id' : 'id_menu';
-                if (isset($item[$cle_id]) && $item[$cle_id] == $id) {
+                if ($type === 'plat' && !isset($item[$cle_id]) && isset($item['id_plat'])) {
+                    $cle_id = 'id_plat';
+                }
+                if (isset($item[$cle_id]) && (string)$item[$cle_id] === (string)$id) {
                     $produit_trouve = $item;
                     break;
                 }
@@ -36,13 +35,13 @@ if (!empty($_SESSION['panier'])) {
         }
 
         if ($produit_trouve) {
-            $prix_unitaire = $produit_trouve['prix'];
+            $prix_unitaire = isset($produit_trouve['prix']) ? (float)$produit_trouve['prix'] : 0;
             $sous_total = $prix_unitaire * $quantite;
             $total_general += $sous_total;
             
             $panier_details[] = [
                 'cle' => $cle,
-                'nom' => $produit_trouve['nom'],
+                'nom' => $produit_trouve['nom'] ?? 'Produit sans nom',
                 'prix' => $prix_unitaire,
                 'quantite' => $quantite,
                 'sous_total' => $sous_total,
@@ -53,7 +52,6 @@ if (!empty($_SESSION['panier'])) {
 }
 $_SESSION['total_general'] = $total_general;
 ?>
-
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -70,9 +68,9 @@ $_SESSION['total_general'] = $total_general;
             <?php if (empty($panier_details)): ?>
                 <p>Votre panier est vide. <a href="presentation.php">Découvrir nos gourmandises</a></p>
             <?php else: ?>
-                <table style="width:100%; border-collapse: collapse; margin-top: 20px;">
+                <table>
                     <thead>
-                        <tr style="border-bottom: 2px solid #ffb6c1;">
+                        <tr>
                             <th>Produit</th>
                             <th>Prix</th>
                             <th>Quantité</th>
@@ -82,13 +80,13 @@ $_SESSION['total_general'] = $total_general;
                     </thead>
                     <tbody>
                         <?php foreach ($panier_details as $item): ?>
-                        <tr style="border-bottom: 1px solid #eee; text-align: center;">
-                            <td style="padding: 10px;"><?= $item['nom'] ?></td>
+                        <tr>
+                            <td><?= htmlspecialchars($item['nom']) ?></td>
                             <td><?= number_format($item['prix'], 2) ?> €</td>
                             <td><?= $item['quantite'] ?></td>
                             <td><?= number_format($item['sous_total'], 2) ?> €</td>
                             <td>
-                                <a href="supprimer_panier.php?cle=<?= $item['cle'] ?>" style="text-decoration:none;">❌</a>
+                                <a href="supprimer_panier.php?cle=<?= $item['cle'] ?>">❌</a>
                             </td>
                         </tr>
                         <?php endforeach; ?>
@@ -104,6 +102,5 @@ $_SESSION['total_general'] = $total_general;
             <?php endif; ?>
         </div>
     </section>
-    <script src="../js/theme.js" defer></script>
 </body>
 </html>
