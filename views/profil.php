@@ -57,33 +57,33 @@ function getStatutBadge($statut) {
 <?php include('../includes/header.php'); ?>
 
 <main class="formsection">
-    <div class="formcontainer" style="max-width: 800px;">
+    <div class="formcontainer">
         <h2 class="titlepink">Mes anciennes commandes</h2>
 
         <?php if (empty($commandes_client)): ?>
             <p>Vous n'avez pas encore passé de commande.</p>
         <?php else: ?>
-            <div class="liste-commandes" style="margin-top: 20px; text-align: left;">
+            <div class="liste-commandes">
                 <?php foreach (array_reverse($commandes_client) as $commande): 
                     $id_cmd = $commande['id_commande'] ?? 0;
                     $date_cmd = $commande['date_heure'] ?? '--/--/---- --:--';
                     $statut_brut = $commande['statut_commande'] ?? 'en_attente';
                     $badge = getStatutBadge($statut_brut);
                 ?>
-                    <div class="ordercard" style="border: 1px solid #ddd; padding: 15px; margin-bottom: 15px; border-radius: 8px; background: #fff;">
-                        <div class="orderheader" style="display: flex; justify-content: space-between; font-weight: bold;">
-                            <span class="idorder" style="color: #ff6b6b;">Commande #<?= $id_cmd ?></span>
-                            <span class="hour" style="font-size: 0.9em; color: #666;">Date : <?= htmlspecialchars($date_cmd) ?></span>
+                    <div class="ordercard">
+                        <div class="orderheader">
+                            <span class="idorder">Commande #<?= $id_cmd ?></span>
+                            <span class="hour">Date : <?= htmlspecialchars($date_cmd) ?></span>
                         </div>
                         
                         <div style="margin: 10px 0;">
                             <strong>Statut : </strong>
-                            <span style="color: <?= $badge['color'] ?>; font-weight: bold;"><?= $badge['label'] ?></span>
+                            <span><?= $badge['label'] ?></span>
                         </div>
 
-                        <div class="order-content" style="background: #f9f9f9; padding: 10px; border-radius: 5px; margin: 10px 0;">
+                        <div class="order-content">
                             <strong>Articles :</strong>
-                            <p style="margin: 5px 0 0 0; color: #555;">
+                            <p>
                                 <?php 
                                     $items = $commande['id_plats'] ?? $commande['id_menus'] ?? [];
                                     echo getDetailsCommande($items, $produits); 
@@ -91,7 +91,7 @@ function getStatutBadge($statut) {
                             </p>
                         </div>
 
-                       <div class="note-section" style="margin-top: 10px; font-size: 0.9em;">
+                       <div class="note-section">
     <?php if ($statut_brut === 'livree'): ?>
         <?php 
         // On regarde si la commande a déjà reçu une note
@@ -99,12 +99,12 @@ function getStatutBadge($statut) {
         ?>
         
         <?php if ($deja_notee): ?>
-            <span style="color: #27ae60; font-weight: bold;">✓ Commande livrée et notée ! Merci pour votre avis. ⭐</span>
+            <span>✓ Commande livrée et notée ! Merci pour votre avis. ⭐</span>
         <?php else: ?>
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span style="color: #27ae60; font-weight: bold;">✓ Commande livrée !</span>
-                <a href="notation.php?id_commande=<?= $id_cmd ?>" style="text-decoration: none;">
-                    <button type="button" style="background-color: var(--rose, #ff6b6b); color: white; border: none; padding: 6px 12px; border-radius: 20px; font-weight: bold; cursor: pointer; font-size: 0.9em;">
+            <div>
+                <span>✓ Commande livrée !</span>
+                <a href="notation.php?id_commande=<?= $id_cmd ?>">
+                    <button type="button">
                         Noter la commande ⭐
                     </button>
                 </a>
@@ -112,7 +112,7 @@ function getStatutBadge($statut) {
         <?php endif; ?>
 
     <?php else: ?>
-        <span style="color: #888; font-size: 0.9em;">Note disponible après livraison</span>
+        <span>Note disponible après livraison</span>
     <?php endif; ?>
 </div>
                 <?php endforeach; ?>
