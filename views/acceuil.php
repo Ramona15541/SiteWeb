@@ -12,10 +12,12 @@
 
 
 <section>
-    <h2 class="title">Recherche de desserts</h2>
-    <div class="zone">
-        <input type="text" placeholder="Trouver un smoothie...">
-        <button>🔍</button>
+    <h2 class="title">Recherche de gourmandises</h2>
+    <div class="zone" style="position: relative;"> 
+        <input type="text" id="search-input" placeholder="Trouver un smoothie ou un dessert..." autocomplete="off">
+        <button type="button">🔍</button>
+        
+        <div id="search-results-show" class="search-show"></div>
     </div>
 </section>
 
@@ -81,6 +83,6 @@
 </section>
 
 <?php include('../includes/footer.php'); ?>
-
+<script src="../js/search.js"></script>
 </body>
 </html>
