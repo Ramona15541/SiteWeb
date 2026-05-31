@@ -23,15 +23,10 @@ if (!empty($_SESSION['panier'])) {
 
         if (!empty($source)) {
             foreach ($source as $item) {
-                // SÉCURITÉ : On vérifie les variantes possibles de clés d'ID dans tes JSON
                 $cle_id = ($type === 'plat') ? 'id' : 'id_menu';
-                
-                // Si 'id' ne marche pas pour un plat, on teste 'id_plat' au cas où
                 if ($type === 'plat' && !isset($item[$cle_id]) && isset($item['id_plat'])) {
                     $cle_id = 'id_plat';
                 }
-
-                // On compare en transformant les deux côtés en texte pour éviter le piège des types
                 if (isset($item[$cle_id]) && (string)$item[$cle_id] === (string)$id) {
                     $produit_trouve = $item;
                     break;
