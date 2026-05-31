@@ -1,4 +1,4 @@
-<?php //////////////////////////////////////////
+<?php
 if (session_status() === PHP_SESSION_NONE) {
     session_start(); 
 }
@@ -38,16 +38,16 @@ if (isset($_SESSION['panier'])) {
 </header>
 
 <nav class="navsimple">
-    <button id="theme-toggle" style="background: none; border: none; cursor: pointer; font-size: 20px;">🌓</button>
+    <button id="theme-toggle">🌓</button>
     <a href="../views/acceuil.php">Accueil</a>
     <a href="../views/presentation.php">Carte</a>
     <a href="avis.php">Avis Clients</a>
 
     <?php if (!isset($_SESSION['role']) || $_SESSION['role'] === 'client'): ?>
-        <a href="panier.php" style="position: relative; font-weight: bold; color: #ff6b6b;">
+        <a href="panier.php">
             🛒 Panier 
             <?php if ($nb_articles > 0): ?>
-                <span style="background: red; color: white; border-radius: 50%; padding: 2px 6px; font-size: 0.8em; position: absolute; top: -10px; right: -15px;">
+                <span>
                     <?= $nb_articles ?>
                 </span>
             <?php endif; ?>
@@ -57,7 +57,7 @@ if (isset($_SESSION['panier'])) {
     <?php if (isset($_SESSION['user_id'])): ?>
         
         <?php if ($_SESSION['role'] === 'admin'): ?>
-            <a href="admin.php" style="color: gold;">Panel Admin</a>
+            <a href="admin.php">Panel Admin</a>
         <?php endif; ?>
 
         <?php if ($_SESSION['role'] === 'client'): ?>
@@ -72,7 +72,7 @@ if (isset($_SESSION['panier'])) {
             <a href="commande.php">Commandes reçues</a>
         <?php endif; ?>
 
-        <a href="../bin/logout.php" style="color: red;">Déconnexion</a>
+        <a href="../bin/logout.php">Déconnexion</a>
 
     <?php else: ?>
         <a href="inscription.php">S'inscrire</a>
