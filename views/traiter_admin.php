@@ -8,7 +8,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     exit();
 }
 
-// 2. Récupération des données envoyées par le JavaScript
+// 2. données js
 $id_recu = isset($_POST['id_utilisateur']) ? (string)$_POST['id_utilisateur'] : null;
 $action = $_POST['action'] ?? '';
 
@@ -41,7 +41,7 @@ foreach ($liste_utilisateurs as $index => $utilisateur) {
     }
 }
 
-// 4. Sauvegarde définitive dans le fichier JSON
+// 4. sauvegarde def
 if ($trouve) {
     $json_force = json_encode($liste_utilisateurs, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
     
