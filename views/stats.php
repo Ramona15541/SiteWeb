@@ -9,7 +9,6 @@ if (
        $_SESSION['role'] !== 'admin' 
    )
 ) { 
- 
    die("Accès interdit."); 
 } 
  
@@ -25,15 +24,12 @@ $commandes = json_decode(
    file_get_contents($fichier_commandes), 
    true 
 ); 
- 
 if (!is_array($commandes)) { 
  
    die("Erreur lecture commandes."); 
 } 
  
- 
 $fichier_plats = '../data/plat.json'; 
- 
 $plats = []; 
  
 if (file_exists($fichier_plats)) { 
@@ -43,10 +39,7 @@ if (file_exists($fichier_plats)) {
        true 
    ); 
 } 
- 
- 
 $noms_plats = []; 
- 
 foreach ($plats as $plat) { 
  
    $noms_plats[$plat['id']] = 
@@ -55,41 +48,27 @@ foreach ($plats as $plat) {
  
  
 $stats_plats = []; 
- 
- 
 $combinaisons = []; 
  
  
 foreach ($commandes as $commande) { 
- 
    if (empty($commande['plats'])) { 
        continue; 
    } 
- 
    $ids_plats_commande = []; 
  
- 
    foreach ($commande['plats'] as $plat_cmd) { 
- 
        $id_plat = $plat_cmd['id_plat']; 
- 
        $quantite = $plat_cmd['quantite']; 
- 
        $ids_plats_commande[] = $id_plat; 
- 
        if (!isset($stats_plats[$id_plat])) { 
- 
            $stats_plats[$id_plat] = 0; 
        } 
- 
        $stats_plats[$id_plat] += $quantite; 
    } 
  
- 
    $nb = count($ids_plats_commande); 
- 
    for ($i = 0; $i < $nb; $i++) { 
- 
        for ($j = $i + 1; $j < $nb; $j++) { 
  
            $a = $ids_plats_commande[$i]; 
@@ -102,30 +81,21 @@ foreach ($commandes as $commande) {
            sort($pair); 
  
            $cle = implode('-', $pair); 
- 
            if (!isset($combinaisons[$cle])) { 
- 
                $combinaisons[$cle] = 0; 
            } 
- 
            $combinaisons[$cle]++; 
        } 
    } 
 } 
  
- 
 arsort($stats_plats); 
- 
-arsort($combinaisons); 
- 
+arsort($combinaisons);
 ?> 
- 
+
 <!DOCTYPE html> 
- 
 <html lang="fr"> 
- 
 <head> 
- 
    <meta charset="UTF-8"> 
  
    <title> 
@@ -139,9 +109,7 @@ arsort($combinaisons);
 <body> 
  
 <section class="formsectionn"> 
- 
    <div class="formcontainerr"> 
- 
        <h2 class="titlepink"> 
            
 
@@ -150,10 +118,7 @@ arsort($combinaisons);
  
        <!-- TOP PRODUITS --> 
  
-       <div style=" 
-           margin-top:40px; 
-       "> 
- 
+       <div> 
            <h3> 
                
 
@@ -168,19 +133,13 @@ arsort($combinaisons);
  
            <?php else: ?> 
  
-               <table style=" 
-                   width:100%; 
-                   margin-top:20px; 
-                   border-collapse:collapse; 
-               "> 
+               <table> 
  
                    <thead> 
  
-                   <tr style=" 
-                       background:#ffe4ea; 
-                   "> 
+                   <tr> 
  
-                       <th style="padding:10px;"> 
+                       <th> 
                            Produit 
                        </th> 
  
@@ -233,9 +192,7 @@ arsort($combinaisons);
        </div> 
  
  
-       <div style=" 
-           margin-top:60px; 
-       "> 
+       <div> 
  
            <h3>  Produits souvent achetés ensemble 
            </h3> 
@@ -243,24 +200,17 @@ arsort($combinaisons);
            <?php if (empty($combinaisons)): ?> 
  
                <p> 
-                   Pas assez de données. 
-               </p> 
+                   Pas assez de données. </p> 
  
            <?php else: ?> 
  
-               <table style=" 
-                   width:100%; 
-                   margin-top:20px; 
-                   border-collapse:collapse; 
-               "> 
+               <table> 
  
                    <thead> 
  
-                   <tr style=" 
-                       background:#ffe4ea; 
-                   "> 
+                   <tr> 
  
-                       <th style="padding:10px;"> 
+                       <th> 
                            Combinaison 
                        </th> 
  
@@ -302,12 +252,9 @@ arsort($combinaisons);
  
                        ?> 
  
-                       <tr style=" 
-                           border-bottom:1px solid #eee; 
-                           text-align:center; 
-                       "> 
+                       <tr> 
  
-                           <td style="padding:12px;"> 
+                           <td> 
  
                                <?php 
                                echo htmlspecialchars( 
