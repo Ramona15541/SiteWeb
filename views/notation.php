@@ -1,19 +1,15 @@
 <?php
 session_start();
 
-// 1. On vérifie juste si le client est bien connecté
 if (!isset($_SESSION['user_id'])) { 
    header('Location: connexion.php'); 
    exit(); 
 }
-
-// 2. On récupère l'ID de la commande envoyé par ton bouton rose du profil
 $id_commande = $_GET['id_commande'] ?? null;
 if (!$id_commande) {
     die("Aucune commande spécifiée.");
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
