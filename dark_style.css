@@ -9,6 +9,35 @@
     --white: #ffffff;
     --text-color: #6E6E6E;
 }
+.search-show {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: white;
+    border: 1px solid var(--rose);
+    border-radius: 4px;
+    z-index: 1000;
+    max-height: 200px;
+    overflow-y: auto;
+    margin-top: 2px;
+}
+
+.search-item-simple {
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+    color: #333;
+    text-align: left;
+    font-weight: bold;
+}
+
+.search-item-simple:hover {
+    background-color: #fff0f5;
+    color: var(--rose);
+}
+    
 
 /* 1. RESET & BASE */
 html { 
@@ -87,6 +116,7 @@ body, .tablecloth {
 
 /* 3. RECHERCHE */
 .zone, .zoneresearch {
+    position: relative;
     text-align: center;
     padding: 15px 0;
 }
@@ -112,6 +142,7 @@ body, .tablecloth {
 
 /* 4. CARTES PRODUITS */
 .product {
+    position: relative;
     background-color: var(--orange);
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     border-radius: 15px;
@@ -765,4 +796,490 @@ footer {
         flex-direction: column;
         align-items: center;
     }
+}
+/* ========================================
+  ADMINN 
+   ================================== */
+
+/* ligne d'un utilisateur bloqué (effet transparent) */
+.user-row-blocked {
+    opacity: 0.4;
+}
+
+/* couleurs  textes de statuts  */
+.text-blocked {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.text-vip {
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.text-premium {
+    color: #2980b9;
+    font-weight: bold;
+}
+
+/* contenant stats de l'admin */
+.admin-stats-section {
+    margin-top: 50px;
+}
+/* =======================================
+    AVIS CLIENTS 
+   ====================================== */
+
+/* ajustement spécifique du conteneur principal */
+.container-avis-page {
+    max-width: 900px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* titre principal cursive */
+.title-avis-cursive {
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+    font-size: 2.2em;
+    margin-bottom: 10px;
+}
+
+/*  encadré de la moy globale */
+.stats-globales {
+    text-align: center;
+    background: #fff5f5;
+    border: 1px solid #ffe3e3;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.moyenne-grosse {
+    font-size: 3em;
+    font-weight: bold;
+    color: #ff6b6b;
+}
+
+.moyenne-label {
+    font-size: 1.5em;
+    color: #888;
+}
+
+.etoiles-site {
+    color: #f1c40f;
+    font-size: 1.4em;
+    margin: 5px 0;
+}
+
+.total-avis-txt {
+    margin: 0;
+    color: #666;
+    font-weight: 500;
+}
+
+/* texte si aucun avis */
+.aucun-avis {
+    text-align: center;
+    color: #777;
+    font-style: italic;
+    margin-top: 40px;
+}
+
+/* grille d'affichage des avis */
+.liste-avis-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+/* carte individuelle d'un avis */
+.card-avis-item {
+    background: #fdfdfd;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-avis-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.client-name {
+    color: #333;
+    font-size: 1.1em;
+}
+
+.date-avis-span {
+    font-size: 0.85em;
+    color: #999;
+}
+
+.etoiles-avis {
+    color: #f1c40f;
+    margin-bottom: 12px;
+    font-size: 1em;
+}
+
+.commentaire-txt {
+    color: #555;
+    font-style: italic;
+    font-size: 0.95em;
+    line-height: 1.5;
+    margin: 0;
+}
+.carte-livraison-transition {
+    margin-bottom: 20px;
+    transition: all 0.4s ease;
+}
+
+.message-vide-visible {
+    text-align: center;
+    margin-top: 50px;
+    display: block;
+}
+
+.message-vide-cache {
+    text-align: center;
+    margin-top: 50px;
+    display: none;
+}
+.texte-reduction-panier {
+    color: green;
+    font-weight: bold;
+}
+
+.prix-total-accentue {
+    color: #ff6b6b;
+}
+.panier-vide-texte {
+    text-align: center;
+}
+
+.panier-vide-alignement {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.tableau-panier {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.tableau-panier-entete {
+    border-bottom: 2px solid #ffb6c1;
+    background: #fff0f2;
+}
+
+.tableau-panier-cellule-produit {
+    padding: 10px;
+}
+
+.tableau-panier-ligne {
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}
+
+.tableau-panier-detail-produit {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+.badge-populaire {
+    color: #ff6b6b;
+    font-size: 0.8em;
+}
+
+.bouton-action-panier-espace {
+    text-decoration: none;
+    margin-right: 5px;
+}
+
+.panier-facturation-bloc {
+    text-align: right;
+    margin-top: 30px;
+}
+
+.panier-total-prix {
+    color: #ff6b6b;
+}
+
+.panier-ajustement-encadre {
+    background: #f9f9f9;
+    padding: 10px;
+    display: inline-block;
+    border-radius: 5px;
+    margin-top: 10px;
+    border-left: 3px solid var(--rose);
+}
+
+.panier-difference-supplement {
+    color: red;
+    font-weight: bold;
+}
+
+.panier-difference-reduction {
+    color: green;
+    font-weight: bold;
+}
+
+.bouton-continuer-panier {
+    padding: 10px 20px;
+    background: #ccc;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    margin-right: 10px;
+}
+
+.panier-suggestions-zone {
+    margin-top: 50px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.panier-suggestions-titre {
+    text-align: center;
+}
+
+.panier-suggestions-grille {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.carte-suggestion-panier {
+    border: 1px solid #ffb6c1;
+    padding: 15px;
+    text-align: center;
+    background: white;
+    border-radius: 15px;
+    width: 200px;
+}
+
+.image-suggestion-panier {
+    width: 80px;
+}
+
+.bouton-suggestion-panier {
+    font-size: 0.8em;
+    padding: 5px 10px;
+}
+
+.panier-suggestions-vide {
+    color: #777;
+}
+.conteneur-historique-commandes {
+    max-width: 800px;
+}
+
+.liste-commandes-client {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.carte-commande-client {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.entete-commande-client {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.identifiant-commande-client {
+    color: #ff6b6b;
+}
+
+.horodatage-commande-client {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.statut-commande-bloc {
+    margin: 10px 0;
+}
+
+.statut-badge-gris {
+    color: gray;
+    font-weight: bold;
+}
+
+.statut-badge-orange {
+    color: orange;
+    font-weight: bold;
+}
+
+.statut-badge-bleu {
+    color: blue;
+    font-weight: bold;
+}
+
+.statut-badge-violet {
+    color: purple;
+    font-weight: bold;
+}
+
+.statut-badge-vert {
+    color: green;
+    font-weight: bold;
+}
+
+.statut-badge-noir {
+    color: black;
+    font-weight: bold;
+}
+
+.contenu-commande-bloc {
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.liste-articles-texte {
+    margin: 5px 0 0 0;
+    color: #555;
+}
+
+.zone-notation-commande {
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+
+.statut-livraison-succes-note {
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.action-notation-alignement {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.statut-livraison-succes {
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.lien-notation-action {
+    text-decoration: none;
+}
+
+.bouton-noter-commande {
+    background-color: var(--rose, #ff6b6b);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.statut-livraison-en-cours {
+    color: #888;
+    font-size: 0.9em;
+}
+.conteneur-retour-paiement {
+    text-align: center;
+}
+
+.retour-paiement-succes {
+    color: green;
+}
+
+.retour-paiement-echec {
+    color: red;
+}
+.bloc-statistiques-produits {
+    margin-top: 40px;
+}
+
+.bloc-statistiques-combinaisons {
+    margin-top: 60px;
+}
+
+.tableau-statistiques {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.entete-tableau-statistiques {
+    background: #ffe4ea;
+}
+
+.cellule-titre-produit {
+    padding: 10px;
+}
+
+.ligne-tableau-statistiques {
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}
+
+.cellule-nom-produit {
+    padding: 12px;
+}
+.tableau-panier {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.entete-tableau-panier {
+    border-bottom: 2px solid #ffb6c1;
+}
+
+.ligne-tableau-panier {
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}
+
+.cellule-nom-panier {
+    padding: 10px;
+}
+
+.lien-supprimer-panier {
+    text-decoration: none;
+}
+
+.zone-total-panier {
+    text-align: right;
+    margin-top: 30px;
+}
+
+.valeur-total-panier {
+    color: #ff6b6b;
+}
+#theme-toggle{
+    background: none; 
+    border: none; 
+    cursor: pointer; 
+    font-size: 20px;
 }
